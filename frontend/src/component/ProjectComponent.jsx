@@ -3,7 +3,7 @@ const ProjectComponent = ({project}) => {
   
   const navigate=useNavigate()
   const getRandomColorClass=()=> {
-      const colors = ['bg-blue-700', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-indigo-500', 'bg-pink-500'];
+      const colors = ['bg-blue-700', 'bg-blue-500', 'bg-green-500', 'bg-yellow-500', 'bg-pink-500'];
       const randomIndex = Math.floor(Math.random() * colors.length);
       return colors[randomIndex];
     }
@@ -23,8 +23,8 @@ const ProjectComponent = ({project}) => {
   } 
 }
   return (
-    <div className='w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center border-blue-300 mr-10 mb-10' onClick={()=>navigate(`/upload`)}>
-        <div className={`w-1/3 h-full rounded-lg flex items-center justify-center ${getRandomColorClass()} mr-2`}>
+    <div className='w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center border-blue-300 mr-10 mb-10' onClick={()=>navigate(`/projects/${project._id}`)}>
+        <div className={`w-1/3 h-full rounded-xl flex items-center justify-center ${getRandomColorClass()} mr-2`}>
           <h1 className="font-extrabold text-5xl text-white ">{getInitials(project.projectName)}</h1>
         </div>
         <div>

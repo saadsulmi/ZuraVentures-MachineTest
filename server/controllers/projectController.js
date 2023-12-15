@@ -1,6 +1,6 @@
 const ProjectModel = require("../models/projectModel");
 const { createToken, verifyToken } = require("../middlewares/jwt");
-const uploadsModel = require("../models/uploadModel");
+const subProjectModel = require("../models/subProjectModel");
 
 const createProject =  async (req, res) => {
   try {
@@ -42,29 +42,20 @@ const getProjects=async (req, res) => {
   }
 }
 
-const getTypes= async (req, res) => {
-  try {
-    // add links for the respective ones later
-    const uploadTypes = ["youtube video", "spotify podcast", "RSS feed"];
-    res.status(200).json({ uploadTypes });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 
 const uploadFileData=async (req, res) => {
   try {
     const { filename, description, projectId, uploadType } = req.body;
-    const newUpload = new uploadsModel({
+    console.log(projectId,'==>');
+    const newUpload = new subProjectModel({
       filename,
       description,
       projectId,
       uploadType,
     });
     await newUpload.save();
-    console.log(newUpload);
-    res.status(201).json({ message: "file uploaded successfully" });
+    const subProjects= await subProjectModel.find({projectId})
+    res.status(201).json({ message: "file uploaded successfully",subProjects });
   } catch (error) {
     console.log(error);
   }
@@ -73,11 +64,11 @@ const uploadFileData=async (req, res) => {
 const getUploadFilesData=async (req, res) => {
   try {
     const projectId = req.params.id;
-    const projectFiles = await uploadsModel
+    const subprojectFiles = await subProjectModel
       .find({ projectId })
-      .select("-createdAt -updatedAt -__v");
-    console.log(projectFiles);
-    res.status(202).json({ projectFiles });
+      .select("-createdAt -__v");
+    const currentProject = await ProjectModel.findOne({_id:projectId})
+    res.status(202).json({ subProjects:subprojectFiles,currentProject });
   } catch (error) {
     console.log(error);
   }
@@ -87,7 +78,7 @@ const editUploadData=async (req, res) => {
   try {
     const { uploadId, description } = req.body;
     console.log(uploadId, description);
-    const uploadFileDetails = await uploadsModel.findOne({ _id: uploadId });
+    const uploadFileDetails = await subProjectModel.findOne({ _id: uploadId });
     uploadFileDetails.description = description;
     await uploadFileDetails.save();
     console.log(uploadFileDetails);
@@ -100,7 +91,6 @@ const editUploadData=async (req, res) => {
 module.exports={
     createProject,
     getProjects,
-    getTypes,
     uploadFileData,
     getUploadFilesData,
     editUploadData

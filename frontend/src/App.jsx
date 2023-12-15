@@ -14,7 +14,7 @@ function App() {
     <Routes path='/'>
       <Route element={<PrivateRoute/>}>
         <Route index element={<LandingPage/>}/>
-        <Route path='/upload' element={<ProjectPage/>}/>
+        <Route path='/projects/:projectId' element={<ProjectPage/>}/>
       </Route>
       <Route path='/register' element={<RegisterPage/>}/>
 

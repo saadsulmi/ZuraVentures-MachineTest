@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const uploadModel=new mongoose.Schema({
+const subProjectModel=new mongoose.Schema({
     projectId:{
         type:mongoose.Types.ObjectId,
         reqired:true
@@ -19,6 +19,6 @@ const uploadModel=new mongoose.Schema({
     },
 },{timestamps:true});
 
-const Uploads= mongoose.model('uploads',uploadModel);
+const subProjects= mongoose.model('subProjects',subProjectModel);
 
-module.exports = Uploads
+module.exports = subProjects

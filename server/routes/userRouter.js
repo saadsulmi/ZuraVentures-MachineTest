@@ -12,11 +12,9 @@ userRouter.post("/createProject",createProject);
 
 userRouter.get("/getProjects/", getProjects);
 
-userRouter.get("/getTypes",getTypes);
+userRouter.post("/uploadSubProjects", uploadFileData);
 
-userRouter.post("/uploadFiles", uploadFileData);
-
-userRouter.get("/getUploadFiles/:id", getUploadFilesData);
+userRouter.get("/getSubProjects/:id", getUploadFilesData);
 
 userRouter.patch("/updateUploadFiles", editUploadData);
 
