@@ -33,7 +33,7 @@ const getProjects=async (req, res) => {
     let token = JSON.parse(req.header('auth-token'))
     const response=await verifyToken(token)
     const userProjects = await ProjectModel.find({userId:response.id}).select(
-        "-createdAt -updatedAt -__v"
+        "-createdAt -__v"
         );
     console.log(userProjects);
     res.status(202).json({ projects:userProjects });

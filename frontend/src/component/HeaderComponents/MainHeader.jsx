@@ -1,4 +1,4 @@
-import logo from '../assets/react.svg'
+import logo from '../../assets/react.svg'
 import { IoSettings } from "react-icons/io5";
 import { FaBell } from "react-icons/fa";
 const MainHeader = () => {
