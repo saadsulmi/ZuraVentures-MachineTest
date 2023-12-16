@@ -14,7 +14,7 @@ const DisplayComponent = () => {
             setFontColor(color);
         };  
   return (
-    <div className='w-full max-h-[450px] overflow-auto p-3 flex flex-col myscroll'>
+    <div className='w-full max-h-[500px] overflow-auto p-3 flex flex-col myscroll'>
         <div className='w-full h-2/3 flex flex-wrap'>
             <div className='w-1/2'>
                 <h1 className='text-xl font-bold text-zinc-700 mb-2'>Primary color</h1>

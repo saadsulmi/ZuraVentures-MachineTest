@@ -9,6 +9,7 @@ import WidgetConfigPage from './pages/WidgetConfigPage'
 import DeploymentPage from './pages/DeploymentPage'
 import PricingPage from './pages/PricingPage'
 import SettingsPage from './pages/SettingsPage'
+import PublicRoute from './routes/PublicRoute'
 
 const LandingPage = lazy(()=>import('./pages/LandingPage'))
 function App() {
@@ -17,18 +18,20 @@ function App() {
     <>
   <Suspense fallback={<LoaderComponent />}>
         <Routes path='/'>
-        <Route path='/register' element={<RegisterPage />} />
+          <Route element={<PublicRoute/>}>
+            <Route path='/register' element={<RegisterPage />} />
+          </Route>
           <Route element={<PrivateRoute />}>
             <Route index element={<LandingPage />} />
             <Route path='/projects'>
               <Route index element={<ProjectPage />} />
               <Route path='edit/:subProjectId' element={<EditSubProjectPage />} />
             </Route>
+            <Route path='/widgetconfigurations' element={<WidgetConfigPage/>} />
+            <Route path='/deployment' element={<DeploymentPage />} />
+            <Route path='/pricing' element={<PricingPage />} />
+            <Route path='/accountsettings' element={<SettingsPage />} />
           </Route>
-          <Route path='/widgetconfigurations' element={<WidgetConfigPage/>} />
-          <Route path='/deployment' element={<DeploymentPage />} />
-          <Route path='/pricing' element={<PricingPage />} />
-          <Route path='/accountsettings' element={<SettingsPage />} />
         </Routes>
       </Suspense>
     </>

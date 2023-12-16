@@ -8,7 +8,6 @@ const createToken= async (data)=>{
 
 const verifyToken=async(token)=>{
     const response=await jwt.verify(token,process.env.ACCESS_TOKEN)
-    console.log(response);
     return response
 }
 

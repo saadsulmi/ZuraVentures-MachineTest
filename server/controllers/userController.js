@@ -45,7 +45,9 @@ const getUserDetails=async(req,res)=>{
   try {
     const token = req.header('auth-token');
     const response=await verifyToken(JSON.parse(token));
-    const userData=await userModel.findOne({id:response._id});
+    console.log(response);
+    const userData=await userModel.findOne({_id:response.id});
+    console.log(userData);
     res.status(202).json({userData})
   } catch (error) {
     console.log(error);

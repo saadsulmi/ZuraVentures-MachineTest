@@ -5,14 +5,21 @@ import MainHeader from "../component/HeaderComponents/MainHeader"
 import CreateProjectComponent from '../component/ProjectComponents/CreateProjectComponent';
 import InitialLandingComponent from "../component/ProjectComponents/InitialLandingComponent";
 import ProjectMainComponent from "../component/ProjectComponents/ProjectMainComponent";
+import LoaderComponent from "../component/Loaders/LoaderComponent";
 
 const LandingPage = () => {
     const [open,setOpen] = useState(false)
     const [projects,setProjects] = useState([])
+    const [isLoading,setisLoading]=useState(false)
     useEffect(()=>{
+        setisLoading(true)
         getProjects().then(res=>{
             setProjects(res.data.projects)
+            setisLoading(false)
+           
         })
+        setisLoading(false)
+
     },[open])
     const handleCreateProject=()=>{
         setOpen(!open)
@@ -20,6 +27,7 @@ const LandingPage = () => {
   return (
     <>
         <div className="w-full text-black h-[100vh] flex flex-col items-center">
+            {isLoading?<LoaderComponent/>:''}
             {open?<CreateProjectComponent handleCreateProject={handleCreateProject} setProjects={setProjects} setOpen={setOpen}/>:''}
             <MainHeader/>
             <div className='w-11/12 px-16 ml-2'>

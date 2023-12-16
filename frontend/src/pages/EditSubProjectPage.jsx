@@ -5,6 +5,7 @@ import SideBarComponent from '../component/HeaderComponents/SideBarComponent';
 import { getSubProjectDetails, updateDescription } from '../services/API';
 import LoaderComponent from '../component/loaders/LoaderComponent';
 import SpinnerComponents from '../component/loaders/SpinnerComponents';
+import { ToastContainer } from 'react-toastify';
 
 const EditSubProjectPage = () => {
     const navigate = useNavigate()
@@ -47,10 +48,12 @@ const EditSubProjectPage = () => {
             updateDescription(data).then(res=>{
                 setUpdateLoading(false);
                 navigate(res.data.redirect)
+            }).catch(e=>{
             })
         }
     }
   return (
+
     <div className="w-full h-[100vh] flex flex-row text-black">
         {loader?<LoaderComponent/>:''}
       <SideBarComponent/>

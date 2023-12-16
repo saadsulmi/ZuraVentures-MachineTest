@@ -2,13 +2,16 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { getUserDetails, updateUser } from '../../services/API'
 import logo from '../../assets/spotify.png'
+import ToastifyComponent from '../BoilerPlates/ToastifyComponent'
 
 const EditProfileComponent = ({handleLoading}) => {
-    const [userData,setUserData]=useState({})
+    const [userData,setUserData]=useState({});
+    const [toast,setToast]=useState({message:'',status:0})
     const [newuserName,setNewUserName] = useState('')
     const [spinner,setSpinner] = useState(false)
     useEffect(()=>{
         getUserDetails().then(res=>{
+            console.log(res.data.userData)
             handleLoading(false);
             setUserData(res.data.userData);
             setNewUserName(res.data.userData.username)
@@ -22,11 +25,18 @@ const EditProfileComponent = ({handleLoading}) => {
         }
         updateUser(data).then(res=>{
             console.log(res.data)
+            setToast((prev)=>({...prev,message:'username updated successfully',status:200}))
             setUserData(res.data.userDetails);
+            setTimeout(()=>{
+                setToast((prev)=>({...prev,message:'',status:0}))
+            },200)
+        }).catch((e)=>{
+            setToast((prev)=>({...prev,message:'something went wrong',status:400}))
         })
 
     }
   return (
+    <>
     <div className='w-full h-80'>
         <div className='w-full h-40 flex items-center justify-between pr-10'>
             <img className='bg-zinc-400 w-36 h-36 rounded-full' src={userData.img?userData.img:logo} alt="userProfile" />
@@ -51,6 +61,8 @@ const EditProfileComponent = ({handleLoading}) => {
         </div>
         <h1 className='text-red-600 underline font-semibold'>Cancel Subscription</h1>
     </div>
+    <ToastifyComponent message={toast.message} status={toast.status}/>
+    </>
   )
 }
 

@@ -31,15 +31,9 @@ const WidgetConfigPage = () => {
             <h1 className={`w-32 text-center h-10 ${option===3?'border-b-4 rounded-sm text-blue-600 font-bold border-blue-600':''}`} onClick={()=>setOption(3)}>Advanced</h1>
           <hr className="absolute mt-9 border-1 border-gray-300 w-full rounded-2xl " />
           </div>
-          {
-            option===1?(<GeneralComponent/>):''
-          }
-          {
-            option===2?(<DisplayComponent/>):''
-          }
-          {
-            option===3?(<AdvancedComponent/>):''
-          }
+          {option===1?(<GeneralComponent/>):''}
+          {option===2?(<DisplayComponent/>):''}
+          {option===3?(<AdvancedComponent/>):''}
         </div>
     </div>
   )

@@ -6,8 +6,7 @@ const createProject =  async (req, res) => {
   try {
     const { projectName } = req.body;
     let token = JSON.parse(req.header('auth-token'))
-    console.log(token,"==>");
-    const response=await verifyToken(token)
+    let response = await verifyToken(token)
     const isExist = await ProjectModel.findOne({ projectName });
     if (!isExist) {
       const newProject = new ProjectModel({
