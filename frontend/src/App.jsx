@@ -5,6 +5,10 @@ import RegisterPage from './pages/RegisterPage'
 import LoaderComponent from './component/Loaders/LoaderComponent'
 import ProjectPage from './pages/ProjectPage'
 import EditSubProjectPage from './pages/EditSubProjectPage'
+import WidgetConfigPage from './pages/WidgetConfigPage'
+import DeploymentPage from './pages/DeploymentPage'
+import PricingPage from './pages/PricingPage'
+import SettingsPage from './pages/SettingsPage'
 
 const LandingPage = lazy(()=>import('./pages/LandingPage'))
 function App() {
@@ -13,15 +17,18 @@ function App() {
     <>
   <Suspense fallback={<LoaderComponent />}>
         <Routes path='/'>
+        <Route path='/register' element={<RegisterPage />} />
           <Route element={<PrivateRoute />}>
             <Route index element={<LandingPage />} />
             <Route path='/projects'>
-              <Route path=':projectId' element={<ProjectPage />} />
+              <Route index element={<ProjectPage />} />
               <Route path='edit/:subProjectId' element={<EditSubProjectPage />} />
             </Route>
           </Route>
-          <Route path='/widgetconfigurations' element={<RegisterPage />} />
-          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/widgetconfigurations' element={<WidgetConfigPage/>} />
+          <Route path='/deployment' element={<DeploymentPage />} />
+          <Route path='/pricing' element={<PricingPage />} />
+          <Route path='/settings' element={<SettingsPage />} />
         </Routes>
       </Suspense>
     </>

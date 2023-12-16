@@ -124,7 +124,7 @@ const updateDescription= async(req,res)=>{
       }else{
         subProject.description=description;
         const updatedFile = await subProject.save();
-        res.status(202).json({ redirect:`/projects/${updatedFile.projectId}` });
+        res.status(202).json({ redirect:`/projects` });
       }
   } catch (error) {
     console.log(error);

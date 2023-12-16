@@ -2,12 +2,15 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { IoSettings } from "react-icons/io5";
 import logo from '../../assets/lamaLogo.png'
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 const SideBarComponent = () => {
+    const projectId=useSelector(state=>state.project.project._id)
     const location = useLocation();
     const navigate = useNavigate()
     const routes=['projects','widget configurations','deployment','pricing'];
     const [pathname,setPath]=useState('')
     useEffect(()=>{
+        console.log(projectId)
         const parts = location.pathname.split('/');
         const path = parts[1];
         setPath(path);
@@ -21,11 +24,11 @@ const SideBarComponent = () => {
         {
             routes.map((val,idx)=>{
                 return (
-                    <div className={`p-1 mt-3 rounded-full flex flex-row items-center pl-3 ${pathname===`${val}`?'bg-blue-700':''}`} key={idx} onClick={()=>{navigate(`/${val.replace(" ",'')}`)}}>
-                        <div className={`w-9 h-9 rounded-full flex items-center justify-center mr-3 ${pathname===`${val}`?'bg-blue-950':'bg-slate-300'}`}>
-                            <h1 className={`font-semibold ${pathname===`${val}`?'text-white':'text-[rgb(49,48,51)]'}`}>{idx+1}</h1> 
+                    <div className={`p-1 mt-3 rounded-full flex flex-row items-center pl-3 ${pathname===`${val.replace(" ",'')}`?'bg-blue-700':''}`} key={idx} onClick={()=>{navigate(`/${val.replace(" ",'')}`)}}>
+                        <div className={`w-9 h-9 rounded-full flex items-center justify-center mr-3 ${pathname===`${val.replace(" ",'')}`?'bg-blue-950':'bg-slate-300'}`}>
+                            <h1 className={`font-semibold ${pathname===`${val.replace(" ",'')}`?'text-white':'text-[rgb(49,48,51)]'}`}>{idx+1}</h1> 
                         </div>
-                        <h1 className={`mt-3 text-lg capitalize h-10 ${pathname===`${val}`?'text-white':'text-[rgb(73,69,79)]'}`}>{val}</h1>
+                        <h1 className={`mt-3 text-lg capitalize h-10 ${pathname===`${val.replace(" ",'')}`?'text-white':'text-[rgb(73,69,79)]'}`}>{val}</h1>
                     </div>
                 )
             })
@@ -34,9 +37,11 @@ const SideBarComponent = () => {
     </div>
     <div className='text-black'>
         <hr className="h-[2px] my-3 bg-gray-200 border-0 dark:bg-gray-300"></hr>
-        <div className='flex items-center ml-2'>
-            <IoSettings className='text-2xl text-gray-600 mr-4' />
-            <h1 className='text-gray-600 text-lg capitalize'>settings</h1>
+        <div className={`p-1 mt-3 rounded-full flex flex-row items-center pl-3 ${pathname==='settings'?'bg-blue-700':''}`}  onClick={()=>{navigate(`/settings`)}}>
+            <div className={`w-9 h-9 rounded-full flex items-center justify-center mr-3 ${pathname==='settings'?'bg-blue-950':''}`}>
+                <h1 className={`font-semibold flex ${pathname==='settings'?'text-white':'text-[rgb(49,48,51)]'}`}><IoSettings className={`text-2xl  ${pathname==='settings'?'text-white':'text-gray-600'}`} /></h1> 
+            </div>
+            <h1 className={`mt-3 text-lg capitalize h-10 ${pathname==='settings'?'text-white':'text-[rgb(73,69,79)]'}`}>settings</h1>
         </div>
     </div>
 
