@@ -7,15 +7,20 @@ const subProjectModel=new mongoose.Schema({
     },
     filename:{
         type:String,
-        require:true
+        required:true
     },
     uploadType:{
         type:String,
-        require:true
+        required:true
+    },
+    status:{
+        type:Boolean,
+        default:false,
+        required:true
     },
     description:{
         type:String,
-        require:true
+        required:true
     },
 },{timestamps:true});
 

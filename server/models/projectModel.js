@@ -7,7 +7,7 @@ const projectModel=new mongoose.Schema({
     },
     projectName:{
         type:String,
-        require:true
+        required:true
     }
 },{timestamps:true});
 

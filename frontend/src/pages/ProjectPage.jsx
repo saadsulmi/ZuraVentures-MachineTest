@@ -1,16 +1,17 @@
-import SideBarComponent from "../component/HeaderComponents/SideBarComponent"
-import { FaBell, FaUser,FaHome } from "react-icons/fa";
+import { useState,useEffect } from "react";
 import { MdOutlineCloudUpload } from "react-icons/md";
+import { FaBell, FaUser,FaHome } from "react-icons/fa";
+import { useNavigate, useParams } from "react-router-dom";
 import youtubeLogo from '../assets/youtube.png'
 import spotifyLogo from '../assets/spotify.png'
 import rssLogo from '../assets/RSS.png'
-import UploadProjectComponent from "../component/UploadProjectComponent";
-import { getSubProjects} from '../services/API'
-import { useState } from "react";
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import SubProjectsComponent from "../component/SubProjectsComponent";
+import UploadProjectComponent from "../component/ProjectComponents/UploadProjectComponent";
+import SideBarComponent from "../component/HeaderComponents/SideBarComponent"
+import { deleteSubProject, getSubProjects} from '../services/API'
+import SubProjectsComponent from "../component/ProjectComponents/SubProjectsComponent";
+import LoaderComponent from "../component/loaders/LoaderComponent";
 const ProjectPage = () => {
+    const [loader,setLoader]=useState(true)
     const { projectId } = useParams();
     const [open,setOpen]=useState(false)
     const [type,setType]=useState('')
@@ -36,13 +37,23 @@ const ProjectPage = () => {
             console.log(res.data.subProjects)
             setSubProjects(res.data.subProjects);
             setcurrentProject(res.data.currentProject.projectName)
+            setLoader(false)
         })
     },[])
+
+    const deleteHandler=(id)=>{
+        deleteSubProject(id).then(res=>{
+            setSubProjects(res.data.subprojects)
+        })
+    }
+
   return (
+
     <div className="w-full h-[100vh] flex flex-row">
+        {loader?<LoaderComponent/>:''}
         {open?<UploadProjectComponent uploadType={type} setOpen={setOpen} logo={uploadLogo} projectId={projectId} setSubProjects={setSubProjects}/>:''}
         <SideBarComponent/>
-        <div className="w-9/12 h-[100vh] text-black px-10 pt-10">
+        <div className="w-full lg:w-9/12 h-[100vh] text-black px-10 pt-10 ">
             <div className="w-full flex justify-between mb-10">
                 <div className="flex items-center">
                     <FaHome className="ml-4 text-2xl text-gray-500 mr-1 hover:text-gray-800" onClick={()=>navigate('/')}/>
@@ -54,8 +65,8 @@ const ProjectPage = () => {
                 </div>
             </div>
             <h1 className="text-4xl font-bold text-blue-700 mb-10">{`${currentProject}`}</h1>
-            <div className="w-11/12 h-1/5 flex">
-                <div className="w-1/3 h-[120px] rounded-lg border shadow-lg mr-4 border-gray-400 flex items-center p-4" onClick={()=>uploadFile('youtube')}>
+            <div className="w-full lg:w-11/12 h-2/5 lg:h-1/5 flex flex-col lg:flex-row mb-14 lg:mb-0">
+                <div className="w-full lg:w-1/3 h-24 lg:h-[120px] rounded-lg border shadow-lg mr-4 border-gray-400 flex items-center p-4" onClick={()=>uploadFile('youtube')}>
                     <div className="w-16 h-16 rounded-full mr-4">
                         <img className="w-fit" src={youtubeLogo} alt="" />
                     </div>
@@ -64,7 +75,7 @@ const ProjectPage = () => {
                         <h1 className="font-semibold">Youtube Video</h1>
                     </div>
                 </div>
-                <div className="w-1/3 h-[120px] rounded-lg border shadow-lg mr-4 border-gray-400 flex items-center p-4" onClick={()=>uploadFile('spotify')}>
+                <div className="w-full lg:w-1/3 h-24 lg:h-[120px] rounded-lg border shadow-lg mr-4 border-gray-400 flex items-center p-4" onClick={()=>uploadFile('spotify')}>
                     <div className="w-16 h-16 rounded-full mr-4">
                         <img className="w-fit" src={spotifyLogo} alt="" />
                     </div>
@@ -73,7 +84,7 @@ const ProjectPage = () => {
                         <h1 className="font-semibold">Spotify podcast</h1>
                     </div>
                 </div>
-                <div className="w-1/3 h-[120px] rounded-lg border shadow-lg border-gray-400 flex items-center p-4" onClick={()=>uploadFile('RSS')}>
+                <div className="w-full lg:w-1/3 h-24 lg:h-[120px] rounded-lg border shadow-lg border-gray-400 flex items-center p-4" onClick={()=>uploadFile('RSS')}>
                     <div className="w-16 h-16 rounded-full mr-4">
                         <img className="w-fit" src={rssLogo} alt="" />
                     </div>
@@ -85,7 +96,7 @@ const ProjectPage = () => {
             </div>
             {
                 subProjects.length>0?(
-                    <SubProjectsComponent subProjects={subProjects}/>
+                    <SubProjectsComponent subProjects={subProjects} deleteHandler={deleteHandler}/>
                 ):
                 (
                     <>

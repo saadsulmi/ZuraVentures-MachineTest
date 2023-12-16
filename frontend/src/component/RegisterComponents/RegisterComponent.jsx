@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { userRegister } from "../services/API"
-import ToastifyComponent from "./ToastifyComponent"
+import { userRegister } from "../../services/API"
+import ToastifyComponent from "../BoilerPlates/ToastifyComponent"
 import { useDispatch } from "react-redux"
-import { authUser } from "../features/authReducer"
+import { authUser } from "../../features/authReducer"
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"
 

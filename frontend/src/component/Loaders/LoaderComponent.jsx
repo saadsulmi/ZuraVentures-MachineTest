@@ -1,9 +1,13 @@
 import { Player } from '@lottiefiles/react-lottie-player';
-import loader from '../assets/LoaderAnimation - 1702636213469.json'
+import loader from '../../assets/LoaderAnimation - 1702636213469.json'
+import { useEffect } from 'react';
 
-const LoaderComponent = () => {
+const LoaderComponent = ({initial}) => {
+  useEffect(()=>{
+
+  },[])
   return (
-    <div className='absolute w-full h-full flex justify-center items-center'>
+    <div className='absolute w-full h-full flex justify-center bg-white items-center'>
                 <Player
                 autoplay
                 loop

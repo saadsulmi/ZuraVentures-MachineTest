@@ -14,7 +14,7 @@ const SideBarComponent = () => {
         console.log(path)
     },[location])
   return (
-    <div className='w-3/12 h-[100vh] bg-[rgb(243,232,255)] flex flex-col justify-between p-6'>
+    <div className='w-3/12 sticky h-[100vh] bg-[rgb(243,232,255)] lg:flex flex-col justify-between p-6 hidden'>
     <div>
         <img className='w-1/2 mt-0' src={logo} alt="" />
         <h1 className='text-[rgb(73,69,79)] mt-6'>Podcast Upload Flow</h1>

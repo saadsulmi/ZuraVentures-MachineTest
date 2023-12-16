@@ -16,7 +16,7 @@ const createProject =  async (req, res) => {
       });
       await newProject.save();
       console.log(newProject);
-      const allProject = await ProjectModel.findOne({ userId:response.id });
+      const allProject = await ProjectModel.findOne({ userId:response.id }).select(" -updatedAt -__v").sort({ createdAt: -1 });;
       res
         .status(201)
         .json({ message: "project created successfully", projects:allProject });
@@ -32,9 +32,7 @@ const getProjects=async (req, res) => {
   try {
     let token = JSON.parse(req.header('auth-token'))
     const response=await verifyToken(token)
-    const userProjects = await ProjectModel.find({userId:response.id}).select(
-        "-createdAt -__v"
-        );
+    const userProjects = await ProjectModel.find({userId:response.id}).select("-__v").sort({ createdAt: -1 });
     console.log(userProjects);
     res.status(202).json({ projects:userProjects });
   } catch (error) {
@@ -52,23 +50,35 @@ const uploadFileData=async (req, res) => {
       description,
       projectId,
       uploadType,
+      status:true
     });
     await newUpload.save();
-    const subProjects= await subProjectModel.find({projectId})
+    const subProjects= await subProjectModel.find({projectId}).sort({ createdAt: -1 });
     res.status(201).json({ message: "file uploaded successfully",subProjects });
   } catch (error) {
     console.log(error);
   }
 }
 
-const getUploadFilesData=async (req, res) => {
+const getAllsubProjectsData=async (req, res) => {
   try {
     const projectId = req.params.id;
     const subprojectFiles = await subProjectModel
-      .find({ projectId })
-      .select("-createdAt -__v");
+      .find({ projectId }).sort({ createdAt: -1 });
     const currentProject = await ProjectModel.findOne({_id:projectId})
     res.status(202).json({ subProjects:subprojectFiles,currentProject });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const getSubProjectFile=async (req, res) => {
+  try {
+    const projectId = req.params.id;
+    const singleSubProject = await subProjectModel
+      .findOne({ _id:projectId })
+    const currentProject = await ProjectModel.findOne({_id:singleSubProject.projectId})
+    res.status(202).json({ singleSubProject,currentProject });
   } catch (error) {
     console.log(error);
   }
@@ -88,10 +98,46 @@ const editUploadData=async (req, res) => {
   }
 }
 
+const deleteSubProject=async (req, res) => {
+  try {
+    const subProjectId = req.params.id;
+    const data = await subProjectModel.findOne({_id:subProjectId})
+    const projectId = data.projectId
+    const deletedFile  = await subProjectModel.findOneAndDelete({ _id:subProjectId});
+    console.log(projectId);
+    if (!deletedFile) {
+       res.status(404).json({ message: 'File not found.' });
+    }
+    const subprojects = await subProjectModel.find({ projectId }).sort({ createdAt: -1 });
+    res.status(202).json({ subprojects });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const updateDescription= async(req,res)=>{
+  try {
+      const {description,id}=req.body;
+      const subProject=await subProjectModel.findOne({_id:id})
+      if(!subProject ){
+        res.status(404).json({ message: 'File not found.' });
+      }else{
+        subProject.description=description;
+        const updatedFile = await subProject.save();
+        res.status(202).json({ redirect:`/projects/${updatedFile.projectId}` });
+      }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports={
     createProject,
     getProjects,
     uploadFileData,
-    getUploadFilesData,
-    editUploadData
+    getAllsubProjectsData,
+    editUploadData,
+    getSubProjectFile,
+    deleteSubProject,
+    updateDescription
 }

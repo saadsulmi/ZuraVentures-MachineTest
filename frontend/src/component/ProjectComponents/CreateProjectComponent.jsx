@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { createProject } from '../services/API';
+import { createProject } from '../../services/API';
 
 const CreateProjectComponent = ({handleCreateProject,setProjects,setOpen}) => {
     const [projectName,setProjectName]=useState('');
