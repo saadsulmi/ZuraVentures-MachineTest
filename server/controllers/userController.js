@@ -27,11 +27,11 @@ const createUser=async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    const { newUsername } = req.body;
+    const { username ,email} = req.body;
     const token = req.header('auth-token')
     // used email to find the user just because in our case email is unique
     let userDetails = await userModel.findOne({ email });
-    userDetails.username = newUsername;
+    userDetails.username = username;
     await userDetails.save();
     res
       .status(202)
@@ -41,8 +41,18 @@ const updateUser = async (req, res) => {
   }
 }
 
-
+const getUserDetails=async(req,res)=>{
+  try {
+    const token = req.header('auth-token');
+    const response=await verifyToken(JSON.parse(token));
+    const userData=await userModel.findOne({id:response._id});
+    res.status(202).json({userData})
+  } catch (error) {
+    console.log(error);
+  }
+}
 module.exports = {
     createUser,
-    updateUser
+    updateUser,
+    getUserDetails,
 }

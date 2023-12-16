@@ -14,12 +14,9 @@ const WidgetConfigPage = () => {
     const [option,setOption]=useState(1)
     const [loader,setLoader]=useState(true)
     useEffect(()=>{
-      console.log(projectId);
         getSubProjects(projectId).then(res=>{
-            console.log(res.data.subProjects)
             setLoader(false)
             setcurrentProject(res.data.currentProject.projectName)
-            // setLoader(false)
         })
     },[])
   return (
@@ -27,7 +24,7 @@ const WidgetConfigPage = () => {
         {loader?<LoaderComponent/>:''}
         <SideBarComponent/>
         <div className="w-full lg:w-9/12 h-[100vh] text-black px-10 pt-10 ">
-          <ProjectHeaderComponent currentProject={currentProject} heading={'Configuration'} route={' widget configuration'}/>
+          <ProjectHeaderComponent currentProject={currentProject} heading={'Configuration'} route={'/ widget configuration'}/>
           <div className="relative flex mb-5">
             <h1 className={`mr-1 w-32 text-center h-10 ${option===1?'border-b-4 rounded-sm text-blue-600 font-bold border-blue-600':''}`} onClick={()=>setOption(1)}>General</h1>
             <h1 className={`mr-1 w-32 text-center h-10 ${option===2?'border-b-4 rounded-sm text-blue-600 font-bold border-blue-600':''}`} onClick={()=>setOption(2)}>Display</h1>

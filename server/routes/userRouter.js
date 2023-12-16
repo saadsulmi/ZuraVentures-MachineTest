@@ -1,5 +1,5 @@
 const express = require("express");
-const { createUser, updateUser } = require("../controllers/userController");
+const { createUser, updateUser, getUserDetails } = require("../controllers/userController");
 const { 
     createProject, 
     getProjects, 
@@ -31,6 +31,8 @@ userRouter.patch("/updateUploadFiles", editUploadData);
 
 userRouter.delete("/deleteSubProject/:id",deleteSubProject)
 
-userRouter.put("/updateDescription",updateDescription)
+userRouter.patch("/updateDescription",updateDescription)
+
+userRouter.get('/getUserDetails',getUserDetails)
 
 module.exports = userRouter;

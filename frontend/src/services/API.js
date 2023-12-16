@@ -16,4 +16,8 @@ export const getSubProjectDetails = async (id)=> await axiosInstance.get(`/subPr
 
 export const deleteSubProject = async (id)=> await axiosInstance.delete(`/deleteSubProject/${id}`)
 
-export const updateDescription = async (data) => await axiosInstance.put('/updateDescription',data)
+export const updateDescription = async (data) => await axiosInstance.patch('/updateDescription',data);
+
+export const getUserDetails = async ()=> await axiosInstance.get('getUserDetails')
+
+export const updateUser = async (data)=> await axiosInstance.patch('/updateUser',data)

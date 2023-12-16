@@ -28,7 +28,7 @@ function App() {
           <Route path='/widgetconfigurations' element={<WidgetConfigPage/>} />
           <Route path='/deployment' element={<DeploymentPage />} />
           <Route path='/pricing' element={<PricingPage />} />
-          <Route path='/settings' element={<SettingsPage />} />
+          <Route path='/accountsettings' element={<SettingsPage />} />
         </Routes>
       </Suspense>
     </>

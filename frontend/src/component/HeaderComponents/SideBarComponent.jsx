@@ -10,11 +10,9 @@ const SideBarComponent = () => {
     const routes=['projects','widget configurations','deployment','pricing'];
     const [pathname,setPath]=useState('')
     useEffect(()=>{
-        console.log(projectId)
         const parts = location.pathname.split('/');
         const path = parts[1];
         setPath(path);
-        console.log(path)
     },[location])
   return (
     <div className='w-3/12 sticky h-[100vh] bg-[rgb(243,232,255)] lg:flex flex-col justify-between p-6 hidden'>
@@ -37,11 +35,11 @@ const SideBarComponent = () => {
     </div>
     <div className='text-black'>
         <hr className="h-[2px] my-3 bg-gray-200 border-0 dark:bg-gray-300"></hr>
-        <div className={`p-1 mt-3 rounded-full flex flex-row items-center pl-3 ${pathname==='settings'?'bg-blue-700':''}`}  onClick={()=>{navigate(`/settings`)}}>
-            <div className={`w-9 h-9 rounded-full flex items-center justify-center mr-3 ${pathname==='settings'?'bg-blue-950':''}`}>
-                <h1 className={`font-semibold flex ${pathname==='settings'?'text-white':'text-[rgb(49,48,51)]'}`}><IoSettings className={`text-2xl  ${pathname==='settings'?'text-white':'text-gray-600'}`} /></h1> 
+        <div className={`p-1 mt-3 rounded-full flex flex-row items-center pl-3 ${pathname==='accountsettings'?'bg-blue-700':''}`}  onClick={()=>{navigate(`/accountsettings`)}}>
+            <div className={`w-9 h-9 rounded-full flex items-center justify-center mr-3 ${pathname==='accountsettings'?'bg-blue-950':''}`}>
+                <h1 className={`font-semibold flex ${pathname==='accountsettings'?'text-white':'text-[rgb(49,48,51)]'}`}><IoSettings className={`text-2xl  ${pathname==='accountsettings'?'text-white':'text-gray-600'}`} /></h1> 
             </div>
-            <h1 className={`mt-3 text-lg capitalize h-10 ${pathname==='settings'?'text-white':'text-[rgb(73,69,79)]'}`}>settings</h1>
+            <h1 className={`mt-3 text-lg capitalize h-10 ${pathname==='accountsettings'?'text-white':'text-[rgb(73,69,79)]'}`}>settings</h1>
         </div>
     </div>
 

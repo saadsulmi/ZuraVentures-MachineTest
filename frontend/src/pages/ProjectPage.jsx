@@ -53,7 +53,7 @@ const ProjectPage = () => {
         {open?<UploadProjectComponent uploadType={type} setOpen={setOpen} logo={uploadLogo} projectId={projectId} setSubProjects={setSubProjects}/>:''}
         <SideBarComponent/>
         <div className="w-full lg:w-9/12 h-[100vh] text-black px-10 pt-10 ">
-            <ProjectHeaderComponent currentProject={currentProject} />
+            <ProjectHeaderComponent currentProject={currentProject} route={'/ upload'} />
             <UploadTypeComponents uploadFile={uploadFile} />
             {
                 subProjects.length>0?(
