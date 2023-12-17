@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { uploadSubProjects } from '../../services/API';
-import SpinnerComponents from '../loaders/SpinnerComponents';
+import SpinnerComponents from '../Loaders/SpinnerComponents';
 
 const UploadProjectComponent = ({setOpen,uploadType,logo,projectId,setSubProjects}) => {
     const [uploadName,setUploadName]=useState('');
