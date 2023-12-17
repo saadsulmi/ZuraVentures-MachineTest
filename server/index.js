@@ -3,23 +3,24 @@ const cors = require("cors");
 const app = express();
 const connectDB= require('./config/database');
 const userRouter = require("./routes/userRouter");
-require("dotenv").config();
+require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
 
 connectDB();
 
 const productionOrigins=[process.env.PRODUCTION_ORIGIN1,process.env.PRODUCTION_ORIGIN2];
-const developmentOrigin=['http://localhost:5173']
+const developmentOrigin=process.env.DEVELOPMENT_ORIGIN
 const allowedOrgins = process.env.NODE_ENV==='production'?productionOrigins:developmentOrigin;
 
 const corsOptions = {
-  origin: allowedOrgins,
+  origin: ['https://zura-ventures-machine-test-kpvi.vercel.app/','http://localhost:5173'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,
   allowedHeaders: ['Content-Type','auth-token'],
 }
+
 
 app.use(cors(corsOptions))
 app.use(express.json({limit:'50mb'}))
