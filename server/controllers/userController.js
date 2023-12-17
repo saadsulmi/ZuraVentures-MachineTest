@@ -12,11 +12,9 @@ const createUser=async (req, res) => {
       });
       await newUser.save();
       const token = await createToken({id:newUser.id,name:newUser.username})
-      console.log(token);
       res.status(201).json({ message: "user created successfully",token});
     } else {
       const token = await createToken({id:isExist.id,name:isExist.username})
-      console.log(token);
       res.status(200).json({ message: "user already exists",token});
     }
   } catch (error) {

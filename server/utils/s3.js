@@ -19,7 +19,6 @@ const s3= new S3Client({
 const uploadBotIcon = async(file,userId)=>{
     try {
         const key = `${userId}/${uuidv4()}`;
-        console.log("file==>",key);
         const command = new PutObjectCommand({
             Bucket:bucketName,
             Key:key,
@@ -39,14 +38,12 @@ const getImageKeysByProject= async(projectId,key)=>{
         prefix:projectId
     })
     const {Contents}= await s3.send(command)||[];
-    console.log(Contents);
     return  Contents.filter(image=>image.Key===key)
 }
 
 const getBotSignedUrl=async(projectId,key)=>{
     try {
         const imageKeys = await getImageKeysByProject(projectId,key);
-        console.log(imageKeys);
         const command=new GetObjectCommand({Bucket:bucketName,Key:imageKeys[0].Key})
         const presignedUrl= await getSignedUrl(s3,command,{expiresIn:900})
         return presignedUrl

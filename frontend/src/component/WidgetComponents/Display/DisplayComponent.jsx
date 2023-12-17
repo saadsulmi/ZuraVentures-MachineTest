@@ -1,4 +1,5 @@
 import { LuUpload } from "react-icons/lu";
+import { FaUserTie } from "react-icons/fa";
 
 const DisplayComponent = ({setConfigData,configData,error,handleImageUpload,link}) => {
    
@@ -136,7 +137,7 @@ const DisplayComponent = ({setConfigData,configData,error,handleImageUpload,link
         </div>
             <h1 className='text-xl font-bold text-zinc-700 mb-2 mt-2'>Bot Icon</h1>
             <div className='w-full flex items-center'>
-                <img src={link} className='w-[70px] h-[70px] bg-zinc-300 rounded-full mr-4 object-cover'></img>
+                {link?<img src={link} className='w-[70px] h-[70px] bg-zinc-300 rounded-full mr-4 object-cover'/>:<FaUserTie className='w-[70px] h-[70px] bg-zinc-300 text-zinc-500 rounded-full mr-4 p-3' />}
                 <div className='flex w-1/2 flex-col justify-center pt-4'>
                     <input type="file" id='imageUpload' hidden onChange={handleImageUpload}/>
                     <label htmlFor="imageUpload" className='w-full lg:w-1/3 h-10 bg-blue-700 hover:bg-blue-600  rounded-lg text-white flex justify-center items-center'><span className='mr-2'>Upload Image</span> <LuUpload /></label>
