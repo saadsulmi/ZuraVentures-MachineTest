@@ -1,17 +1,20 @@
 import {Route,Routes} from 'react-router-dom'
 import { Suspense, lazy } from 'react'
-import PrivateRoute from './routes/PrivateRoute'
 import RegisterPage from './pages/RegisterPage'
-import LoaderComponent from './component/Loaders/LoaderComponent'
-import ProjectPage from './pages/ProjectPage'
-import EditSubProjectPage from './pages/EditSubProjectPage'
-import WidgetConfigPage from './pages/WidgetConfigPage'
-import DeploymentPage from './pages/DeploymentPage'
-import PricingPage from './pages/PricingPage'
-import SettingsPage from './pages/SettingsPage'
+import LandingPage from './pages/LandingPage'
+import PrivateRoute from './routes/PrivateRoute'
 import PublicRoute from './routes/PublicRoute'
+import LoaderComponent from './component/Loaders/LoaderComponent'
 
-const LandingPage = lazy(()=>import('./pages/LandingPage'))
+
+const SettingsPage = lazy(()=>import('./pages/SettingsPage'))
+const ProjectPage = lazy(()=>import('./pages/ProjectPage'))
+const EditSubProjectPage = lazy(()=>import('./pages/EditSubProjectPage'))
+const DeploymentPage = lazy(()=>import('./pages/DeploymentPage'))
+const WidgetConfigPage = lazy(()=>import('./pages/WidgetConfigPage'))
+const PricingPage = lazy(()=>import('./pages/PricingPage'))
+
+
 function App() {
 
   return (

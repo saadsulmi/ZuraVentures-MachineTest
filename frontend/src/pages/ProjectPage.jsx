@@ -4,7 +4,7 @@ import UploadProjectComponent from "../component/ProjectComponents/UploadProject
 import SideBarComponent from "../component/HeaderComponents/SideBarComponent"
 import { deleteSubProject, getSubProjects} from '../services/API'
 import SubProjectsComponent from "../component/ProjectComponents/SubProjectsComponent";
-import LoaderComponent from "../component/loaders/LoaderComponent";
+import LoaderComponent from "../component/Loaders/LoaderComponent";
 import { useSelector } from "react-redux";
 import ProjectHeaderComponent from "../component/HeaderComponents/ProjectHeaderComponent";
 import UploadTypeComponents from "../component/ProjectComponents/UploadTypeComponents";
@@ -30,9 +30,7 @@ const ProjectPage = () => {
     }
 
     useEffect(()=>{
-        console.log(projectId);
         getSubProjects(projectId).then(res=>{
-            console.log(res.data.subProjects)
             setSubProjects(res.data.subProjects);
             setcurrentProject(res.data.currentProject.projectName)
             setLoader(false)
@@ -49,7 +47,7 @@ const ProjectPage = () => {
   return (
 
     <div className="w-full h-[100vh] flex flex-row">
-        {loader?<LoaderComponent/>:''}
+        {loader&&<LoaderComponent/>}
         {open?<UploadProjectComponent uploadType={type} setOpen={setOpen} logo={uploadLogo} projectId={projectId} setSubProjects={setSubProjects}/>:''}
         <SideBarComponent/>
         <div className="w-full lg:w-9/12 h-[100vh] text-black px-10 pt-10 ">

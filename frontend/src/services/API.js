@@ -1,5 +1,12 @@
 import axiosInstance from "./axios";
 
+const formDataHeaders = {
+    headers :{
+        "auth-token" : JSON.stringify(localStorage.getItem("auth-data"))||null,
+        "Content-Type": "multipart/formdata"
+    }
+}
+
 export const test=async ()=> await axiosInstance.post('/test',{message:"test message"})
 
 export const userRegister = async (data)=> await axiosInstance.post('/createUser',data);
@@ -21,3 +28,7 @@ export const updateDescription = async (data) => await axiosInstance.patch('/upd
 export const getUserDetails = async ()=> await axiosInstance.get('/getUserDetails')
 
 export const updateUser = async (data)=> await axiosInstance.patch('/updateUser',data)
+
+export const addWidgetConfiguration=async (data)=>await axiosInstance.post('/addwidgetConfiguration',data,formDataHeaders)
+
+export const getConfigurationData = async (id)=>await axiosInstance.get(`/getConfigurationData/${id}`)

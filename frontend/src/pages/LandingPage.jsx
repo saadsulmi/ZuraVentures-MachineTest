@@ -27,10 +27,10 @@ const LandingPage = () => {
   return (
     <>
         <div className="w-full text-black h-[100vh] flex flex-col items-center">
-            {isLoading?<LoaderComponent/>:''}
+            {isLoading&&<LoaderComponent/>}
             {open?<CreateProjectComponent handleCreateProject={handleCreateProject} setProjects={setProjects} setOpen={setOpen}/>:''}
             <MainHeader/>
-            <div className='w-11/12 px-16 ml-2'>
+            <div className='w-11/12 px-2 lg:px-16 ml-2'>
                 <button className='border border-gray-300 rounded-full py-1 px-2 flex flex-row items-center hover:bg-blue-200'><IoMdHome className='mr-2 text-[25px]' /><span>Go to home</span></button>
             </div>
             {

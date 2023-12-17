@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { FaBell, FaUser,FaHome,FaPen } from "react-icons/fa";
 import SideBarComponent from '../component/HeaderComponents/SideBarComponent';
 import { getSubProjectDetails, updateDescription } from '../services/API';
-import LoaderComponent from '../component/loaders/LoaderComponent';
-import SpinnerComponents from '../component/loaders/SpinnerComponents';
+import LoaderComponent from '../component/Loaders/LoaderComponent';
+import SpinnerComponents from '../component/Loaders/SpinnerComponents';
 import { ToastContainer } from 'react-toastify';
 
 const EditSubProjectPage = () => {
@@ -55,7 +55,7 @@ const EditSubProjectPage = () => {
   return (
 
     <div className="w-full h-[100vh] flex flex-row text-black">
-        {loader?<LoaderComponent/>:''}
+        {loader&&<LoaderComponent/>}
       <SideBarComponent/>
       <div className="w-full lg:w-9/12 h-[100vh] text-black px-10 pt-10 ">
         <div className="w-full flex justify-between mb-10">

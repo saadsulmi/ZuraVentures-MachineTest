@@ -1,4 +1,5 @@
 const express = require("express");
+const multer = require('multer')
 const { createUser, updateUser, getUserDetails } = require("../controllers/userController");
 const { 
     createProject, 
@@ -8,10 +9,17 @@ const {
     editUploadData, 
     getSubProjectFile, 
     deleteSubProject,
+    addWidgetConfiguration,
+    getConfigDetails,
     updateDescription } = require("../controllers/projectController");
 
 const userRouter = express.Router();
 
+
+
+const upload = multer ({
+
+})
 
 userRouter.post("/createUser",createUser);
 
@@ -34,5 +42,9 @@ userRouter.delete("/deleteSubProject/:id",deleteSubProject)
 userRouter.patch("/updateDescription",updateDescription)
 
 userRouter.get('/getUserDetails',getUserDetails)
+
+userRouter.post('/addwidgetConfiguration',upload.any(),addWidgetConfiguration)
+
+userRouter.get('/getConfigurationData/:id',getConfigDetails)
 
 module.exports = userRouter;

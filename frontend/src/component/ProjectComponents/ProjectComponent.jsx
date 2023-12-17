@@ -33,7 +33,7 @@ const handleNavigate=(id)=>{
   navigate(`/projects`)
 }
   return (
-    <div className='w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center border-blue-300 mr-10 mb-10' onClick={()=>handleNavigate(project._id)}>
+    <div className='w-full lg:w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center border-blue-300 mr-10 mb-10' onClick={()=>handleNavigate(project._id)}>
         <div className={`w-1/3 h-full rounded-xl flex items-center justify-center ${getRandomColorClass()} mr-2`}>
           <h1 className="font-extrabold text-5xl text-white ">{getInitials(project.projectName)}</h1>
         </div>
