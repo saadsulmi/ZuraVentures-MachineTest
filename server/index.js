@@ -9,9 +9,12 @@ const PORT = process.env.PORT || 8000;
 
 connectDB();
 
+const productionOrigins=[process.env.PRODUCTION_ORIGIN1,process.env.PRODUCTION_ORIGIN2];
+const developmentOrigin=['http://localhost:5173']
+const allowedOrgins = process.env.NODE_ENV==='production'?productionOrigins:developmentOrigin;
 
 const corsOptions = {
-  origin: ['http://localhost:5173'],
+  origin: allowedOrgins,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,

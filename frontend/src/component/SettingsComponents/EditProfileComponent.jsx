@@ -39,7 +39,7 @@ const EditProfileComponent = ({handleLoading}) => {
     <>
     <div className='w-full h-80'>
         <div className='w-full h-40 flex items-center justify-between pr-10'>
-            <img className='bg-zinc-400 w-36 h-36 rounded-full' src={userData.img?userData.img:logo} alt="userProfile" />
+            <img className='bg-zinc-300 w-36 h-36 p-4 rounded-full' src={userData.img?userData.img:'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png'} alt="userProfile" />
             <div className='w-1/3 flex flex-col'>
                 <label className='mt-3 text-xl font-bold text-zinc-700' htmlFor="username">User Name</label>
                 <input className='w-full h-10 rounded-lg border text-zinc-700 border-gray-400 bg-white focus:outline-none p-3 mt-1' value={newuserName} type="text" id='username' onChange={(e)=>{setNewUserName(e.target.value)}} />

@@ -82,9 +82,9 @@ const DisplayComponent = ({setConfigData,configData,error,handleImageUpload,link
                 <h1 className='text-xl font-bold text-zinc-700'>Show Sources</h1>
             </div>
             <div>
-            {/* <div className={`toggle-switch ${configData.showsource ? 'checked' : ''}`} onClick={handleToggle}>
+            <div className={`toggle-switch ${configData.showsource ? 'checked' : ''}`} onClick={handleToggle}>
                 <div className={`switch-inner ${configData.showsource ? 'checked' : ''}`} />
-            </div> */}
+            </div>
         </div>
         </div>
         <hr className='w-full border-2 border-zinc-300 mt-4 mb-8'/>
