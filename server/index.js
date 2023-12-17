@@ -14,7 +14,7 @@ const developmentOrigin=process.env.DEVELOPMENT_ORIGIN
 const allowedOrgins = process.env.NODE_ENV==='production'?productionOrigins:developmentOrigin;
 
 const corsOptions = {
-  origin: ['https://zura-ventures-machine-test-kpvi.vercel.app/','http://localhost:5173'],
+  origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,
