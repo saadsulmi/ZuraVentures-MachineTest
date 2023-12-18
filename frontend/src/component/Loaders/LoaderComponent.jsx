@@ -1,22 +1,19 @@
-import { Player } from '@lottiefiles/react-lottie-player';
-import loader from '../../assets/LoaderAnimation - 1702636213469.json'
-import { useEffect } from 'react';
+import { Player } from "@lottiefiles/react-lottie-player";
+import loader from "../../assets/LoaderAnimation - 1702636213469.json";
+import { useEffect } from "react";
 
-const LoaderComponent = ({initial}) => {
-  useEffect(()=>{
-
-  },[])
+const LoaderComponent = ({ initial }) => {
+  useEffect(() => {}, []);
   return (
-    <div className='absolute w-full h-full flex justify-center bg-white items-center'>
-                <Player
-                autoplay
-                loop
-                src={loader}
-                style={{ height: '300px', width: '300px' }}
-                >
-                </Player>
+    <div className="absolute w-full h-full flex justify-center bg-white items-center">
+      <Player
+        autoplay
+        loop
+        src={loader}
+        style={{ height: "300px", width: "300px" }}
+      ></Player>
     </div>
-  )
-}
+  );
+};
 
-export default LoaderComponent
+export default LoaderComponent;

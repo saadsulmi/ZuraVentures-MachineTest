@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const AdvancedComponent = () => {
-      const [isColorSelected, setIsColorSelected] = useState(false);
-  const [selectedColor, setSelectedColor] = useState('#4CAF50'); // Default color
+  const [isColorSelected, setIsColorSelected] = useState(false);
+  const [selectedColor, setSelectedColor] = useState("#4CAF50"); // Default color
 
   const handleToggle = () => {
     setIsColorSelected(!isColorSelected);
@@ -13,11 +13,10 @@ const AdvancedComponent = () => {
     console.log(color);
   };
   return (
-    <div className={`color-selector ${isColorSelected ? 'selected' : ''}`}>
+    <div
+      className={`color-selector ${isColorSelected ? "selected" : ""}`}
+    ></div>
+  );
+};
 
-     
-    </div>
-  )
-}
-
-export default AdvancedComponent
+export default AdvancedComponent;

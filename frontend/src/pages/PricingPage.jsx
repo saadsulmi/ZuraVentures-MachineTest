@@ -1,11 +1,11 @@
-import SideBarComponent from '../component/HeaderComponents/SideBarComponent'
+import SideBarComponent from "../component/HeaderComponents/SideBarComponent";
 
 const PricingPage = () => {
   return (
     <div className="w-full h-[100vh]">
-        <SideBarComponent/>
+      <SideBarComponent />
     </div>
-  )
-}
+  );
+};
 
-export default PricingPage
+export default PricingPage;

@@ -1,11 +1,11 @@
-import SideBarComponent from "../component/HeaderComponents/SideBarComponent"
+import SideBarComponent from "../component/HeaderComponents/SideBarComponent";
 
 const DeploymentPage = () => {
   return (
     <div className="w-full h-[100vh]">
-        <SideBarComponent/>
+      <SideBarComponent />
     </div>
-  )
-}
+  );
+};
 
-export default DeploymentPage
+export default DeploymentPage;

@@ -1,11 +1,11 @@
-import RegisterComponent from "../component/RegisterComponents/RegisterComponent"
+import RegisterComponent from "../component/RegisterComponents/RegisterComponent";
 
 const RegisterPage = () => {
   return (
     <>
-        <RegisterComponent/>
+      <RegisterComponent />
     </>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;
