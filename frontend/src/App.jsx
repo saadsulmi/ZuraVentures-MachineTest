@@ -22,12 +22,8 @@ function App() {
         <Routes path="/">
           <Route element={<PrivateRoute />}>
             <Route index element={<LandingPage />} />
-            <Route path="projects" element={<ProjectPage />}>
-              <Route
-                path="edit/:subProjectId"
-                element={<EditSubProjectPage />}
-              />
-            </Route>
+            <Route path="projects" element={<ProjectPage />}/>
+            <Route path="projects/edit/:subProjectId" element={<EditSubProjectPage />}/>
             <Route path="widgetconfigurations" element={<WidgetConfigPage />} />
             <Route path="deployment" element={<DeploymentPage />} />
             <Route path="pricing" element={<PricingPage />} />
