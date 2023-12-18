@@ -27,7 +27,6 @@ const RegisterComponent = () => {
           dispatch(authUser(data));
           setmessage(res.data.message);
           setStatus(res.status);
-          navigate("/");
           window.location.reload();
         });
       } else {
