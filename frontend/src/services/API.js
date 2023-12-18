@@ -1,11 +1,5 @@
 import axiosInstance from "./axios";
 
-const headers = {
-  headers: {
-    "auth-token": JSON.parse(localStorage.getItem("auth-data")),
-  },
-};
-
 const formDataHeaders = {
   headers: {
     "auth-token": localStorage.getItem("auth-data")
@@ -19,10 +13,10 @@ export const userRegister = async (data) =>
   await axiosInstance.post("/createUser", data);
 
 export const createProject = async (data) =>
-  await axiosInstance.post("/createProject", data, headers);
+  await axiosInstance.post("/createProject", data);
 
-export const getProjects = async (subHeader) =>
-  await axiosInstance.get("/getProjects", subHeader?subHeader:headers);
+export const getProjects = async () =>
+  await axiosInstance.get("/getProjects");
 
 export const uploadSubProjects = async (data) =>
   await axiosInstance.post("/uploadSubProjects", data);
@@ -39,10 +33,8 @@ export const deleteSubProject = async (id) =>
 export const updateDescription = async (data) =>
   await axiosInstance.patch("/updateDescription", data);
 
-export const getUserDetails = async (subHeader) =>
-   await axiosInstance.get("/getUserDetails",subHeader?subHeader:headers);
-
-  
+export const getUserDetails = async () =>
+   await axiosInstance.get("/getUserDetails");
 
 export const updateUser = async (data) =>
   await axiosInstance.patch("/updateUser", data);

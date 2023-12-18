@@ -18,6 +18,7 @@ function App() {
   return (
     <>
       <Suspense fallback={<LoaderComponent />}>
+        
         <Routes path="/">
           <Route element={<PrivateRoute />}>
             <Route index element={<LandingPage />} />

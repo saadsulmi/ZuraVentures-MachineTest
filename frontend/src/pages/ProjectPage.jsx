@@ -35,7 +35,7 @@ const ProjectPage = () => {
       setcurrentProject(res.data.currentProject.projectName);
       setLoader(false);
     });
-  }, []);
+  },[]);
 
   const deleteHandler = (id) => {
     deleteSubProject(id).then((res) => {

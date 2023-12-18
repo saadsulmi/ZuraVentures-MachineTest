@@ -25,9 +25,9 @@ const MainHeader = () => {
             setOpen(!open);
           }}
         />
-        <FaBell className="font-bold text-blue-950 text-[25px]" />
+        <FaBell className="font-bold cursor-pointer text-blue-950 text-[25px]" />
         <div
-          className={`absolute ${
+          className={`absolute cursor-pointer ${
             open ? "visible" : "hidden"
           }  w-40 rounded-md h-10 -ml-20 mt-20 border text-gray-400 hover:text-gray-600 duration-200 border-gray-700 hover:bg-blue-100 flex items-center justify-center`}
           onClick={handleLogout}

@@ -12,6 +12,7 @@ import GeneralComponent from "../component/WidgetComponents/General/GeneralCompo
 import DisplayComponent from "../component/WidgetComponents/Display/DisplayComponent";
 import AdvancedComponent from "../component/WidgetComponents/Advanced/AdvancedComponent";
 import SpinnerComponents from "../component/Loaders/SpinnerComponents";
+import ToastifyComponent from "../component/BoilerPlates/ToastifyComponent";
 
 const WidgetConfigPage = () => {
   const [error, setError] = useState({
@@ -28,6 +29,7 @@ const WidgetConfigPage = () => {
     image: false,
   });
   const [configData, setConfigData] = useState({});
+  const [toast, setToast] = useState({message:'',status:0});
   const [oldConfig, setOldConfid] = useState({});
   const validFileTypes = ["image/jpeg", "image/jpg", "image/png"];
   const projectId = useSelector((state) => state.project.project);
@@ -62,6 +64,7 @@ const WidgetConfigPage = () => {
   const handleSubmit = () => {
     const form = new FormData();
     if (!configData.chatbotname) {
+      setToast(prev=>({...prev,message:'Please Enter Chatbot',status:400}))
       setError((prev) => ({ ...prev, chatbotname: true }));
       return;
     } else {
@@ -69,6 +72,7 @@ const WidgetConfigPage = () => {
       form.append("chatbotname", configData.chatbotname);
     }
     if (!configData.message) {
+      setToast(prev=>({...prev,message:'Please Enter Welcome Message',status:401}))
       setError((prev) => ({ ...prev, message: true }));
       return;
     } else {
@@ -76,6 +80,7 @@ const WidgetConfigPage = () => {
       form.append("message", configData.message);
     }
     if (!configData.placeholder) {
+      setToast(prev=>({...prev,message:'Please Enter Placeholder',status:402}))
       setError((prev) => ({ ...prev, placeholder: true }));
       return;
     } else {
@@ -216,6 +221,7 @@ const WidgetConfigPage = () => {
           {option === 3 ? <AdvancedComponent /> : ""}
         </div>
       </div>
+      <ToastifyComponent message={toast.message} status={toast.status} />
     </>
   );
 };

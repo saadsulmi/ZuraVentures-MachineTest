@@ -2,26 +2,21 @@ import { useState } from "react";
 import { createProject } from "../../services/API";
 
 const CreateProjectComponent = ({
+  projectName,
+  setProjectName,
+  error,
+  setError,
+  handleCreate,
   handleCreateProject,
   setProjects,
   setOpen,
 }) => {
-  const [projectName, setProjectName] = useState("");
-  const [error, setError] = useState(false);
-  const handleCreate = () => {
-    if (!projectName) {
-      setError(true);
-    } else {
-      createProject({ projectName }).then((res) => {
-        setProjects((prev) => [...prev, res.data.projects]);
-        setOpen(false);
-      });
-    }
-  };
+
+
 
   return (
     <div className="absolute w-full h-full bg-black z-10 bg-opacity-40 flex justify-center items-center">
-      <div className="w-3/4 p-6 rounded-lg shadow-xl bg-white px-8 ">
+      <div className="w-2/4 p-6 rounded-2xl h-[300px] shadow-xl bg-white px-8 ">
         <h1 className="text-3xl font-semibold capitalize text-blue-700">
           create project
         </h1>
@@ -49,7 +44,7 @@ const CreateProjectComponent = ({
             Cancel
           </button>
           <button
-            className="ml-6 w-1/12 duration-200 bg-blue-600 font-semibold text-white h-10 rounded hover:bg-blue-500"
+            className="ml-6 w-[100px] duration-200 bg-blue-600 font-semibold text-white h-10 rounded-xl hover:bg-blue-500"
             onClick={handleCreate}
           >
             Create

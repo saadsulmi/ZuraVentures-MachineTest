@@ -17,15 +17,15 @@ const SideBarComponent = () => {
     setPath(path);
   }, [location]);
   return (
-    <div className="w-3/12 sticky h-[100vh] bg-[rgb(243,232,255)] lg:flex flex-col justify-between p-6 hidden">
+    <div className="w-3/12 sticky h-[100vh] bg-[rgb(243,232,255)] lg:flex flex-col justify-between p-3 hidden">
       <div>
         <img className="w-1/2 mt-0" src={logo} alt="" />
         <h1 className="text-[rgb(73,69,79)] mt-6">Podcast Upload Flow</h1>
         {routes.map((val, idx) => {
           return (
             <div
-              className={`p-1 mt-3 rounded-full flex flex-row items-center pl-3 ${
-                pathname === `${val.replace(" ", "")}` ? "bg-blue-700" : ""
+              className={`w-full py-1 mt-3 rounded-full flex flex-row items-center pl-3   ${
+                pathname === `${val.replace(" ", "")}` ? "bg-blue-700" : "hover:bg-[rgb(226,216,238)]"
               }`}
               key={idx}
               onClick={() => {
@@ -33,14 +33,14 @@ const SideBarComponent = () => {
               }}
             >
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center mr-3 ${
+                className={`w-7 h-7 rounded-full flex items-center justify-center mr-1 ${
                   pathname === `${val.replace(" ", "")}`
                     ? "bg-blue-950"
-                    : "bg-slate-300"
+                    : "bg-[rgb(217,207,228)]"
                 }`}
               >
                 <h1
-                  className={`font-semibold ${
+                  className={`font-semibold cursor-pointer ${
                     pathname === `${val.replace(" ", "")}`
                       ? "text-white"
                       : "text-[rgb(49,48,51)]"
@@ -49,8 +49,8 @@ const SideBarComponent = () => {
                   {idx + 1}
                 </h1>
               </div>
-              <h1
-                className={`mt-3 text-lg capitalize h-10 ${
+                <h1
+                className={`mt-3 text-lg inline capitalize cursor-pointer h-10 ${
                   pathname === `${val.replace(" ", "")}`
                     ? "text-white"
                     : "text-[rgb(73,69,79)]"
@@ -86,7 +86,7 @@ const SideBarComponent = () => {
               }`}
             >
               <IoSettings
-                className={`text-2xl  ${
+                className={`text-2xl cursor-pointer ${
                   pathname === "accountsettings"
                     ? "text-white"
                     : "text-gray-600"
@@ -95,7 +95,7 @@ const SideBarComponent = () => {
             </h1>
           </div>
           <h1
-            className={`mt-3 text-lg capitalize h-10 ${
+            className={`mt-3 cursor-pointer text-lg capitalize h-10 ${
               pathname === "accountsettings"
                 ? "text-white"
                 : "text-[rgb(73,69,79)]"

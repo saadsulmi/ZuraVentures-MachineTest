@@ -20,8 +20,8 @@ const createProject = async (req, res) => {
       });
       await newProject.save();
       const allProject = await ProjectModel.findOne({ userId: response.id })
-        .select(" -updatedAt -__v")
-        .sort({ createdAt: -1 });
+        .select("-__v")
+       .sort({ createdAt: -1 });
       res.status(201).json({
         message: "project created successfully",
         projects: allProject,
@@ -37,7 +37,7 @@ const createProject = async (req, res) => {
 const getProjects = async (req, res) => {
   let token = req.header("auth-token");
   if (!token) {
-    return res.status(401).json({ message: "Token must be provided" });
+    return res.status(401).json({ message: "Token must be provided",reload:true });
   }
   try {
     const response = await verifyToken(token);

@@ -15,7 +15,7 @@ const ToastifyComponent = ({ message, status }) => {
         progress: undefined,
         theme: "light",
       });
-    } else if ([401, 400, 404, 409].includes(status)) {
+    } else if (status>=400) {
       toast.error(`${message}`, {
         position: "top-right",
         autoClose: 5000,
