@@ -19,9 +19,10 @@ export const userRegister = async (data) =>
   await axiosInstance.post("/createUser", data);
 
 export const createProject = async (data) =>
-  await axiosInstance.post("/createProject", data);
+  await axiosInstance.post("/createProject", data, headers);
 
-export const getProjects = async () => await axiosInstance.get("/getProjects");
+export const getProjects = async () =>
+  await axiosInstance.get("/getProjects", headers);
 
 export const uploadSubProjects = async (data) =>
   await axiosInstance.post("/uploadSubProjects", data);

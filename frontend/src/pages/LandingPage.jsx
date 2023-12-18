@@ -9,7 +9,7 @@ import LoaderComponent from "../component/Loaders/LoaderComponent";
 
 const LandingPage = () => {
   const [open, setOpen] = useState(false);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState("");
   const [isLoading, setisLoading] = useState(false);
   useEffect(() => {
     setisLoading(true);
@@ -42,13 +42,19 @@ const LandingPage = () => {
             <span>Go to home</span>
           </button>
         </div>
-        {projects.length > 0 ? (
-          <ProjectMainComponent
-            handleCreateProject={handleCreateProject}
-            projects={projects}
-          />
+        {projects ? (
+          projects.length > 0 ? (
+            <ProjectMainComponent
+              handleCreateProject={handleCreateProject}
+              projects={projects}
+            />
+          ) : (
+            <InitialLandingComponent
+              handleCreateProject={handleCreateProject}
+            />
+          )
         ) : (
-          <InitialLandingComponent handleCreateProject={handleCreateProject} />
+          <LoaderComponent />
         )}
       </div>
     </>

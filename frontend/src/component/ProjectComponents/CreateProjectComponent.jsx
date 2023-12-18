@@ -13,7 +13,7 @@ const CreateProjectComponent = ({
       setError(true);
     } else {
       createProject({ projectName }).then((res) => {
-        setProjects(res.data.projects);
+        setProjects((prev) => [...prev, res.data.projects]);
         setOpen(false);
       });
     }

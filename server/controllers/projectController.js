@@ -5,9 +5,12 @@ const subProjectModel = require("../models/subProjectModel");
 const { uploadBotIcon, getBotSignedUrl } = require("../utils/s3");
 
 const createProject = async (req, res) => {
+  let token = req.header("auth-token");
+  if (!token) {
+    return res.status(401).json({ message: "Token must be provided" });
+  }
   try {
     const { projectName } = req.body;
-    let token = req.header("auth-token");
     let response = await verifyToken(token);
     const isExist = await ProjectModel.findOne({ projectName });
     if (!isExist) {
