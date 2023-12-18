@@ -45,7 +45,11 @@ const updateUser = async (req, res) => {
 
 const getUserDetails = async (req, res) => {
   try {
+    console.log("qwe");
+    const token = req.header("auth-token");
+    console.log(token);
     const response = await verifyToken(token);
+    console.log(response);
     const userData = await userModel.findOne({ _id: response.id });
     console.log(userData);
     res.status(202).json({ userData });

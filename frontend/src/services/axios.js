@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const getHeader = () => {
-  const token = localStorage.getItem("auth-data")
+const getHeader =() => {
+  const token =  localStorage.getItem("auth-data")
     ? JSON.parse(localStorage.getItem("auth-data"))
     : null;
-  console.log(token);
+  return token
 };
 
 const productionOrigins = import.meta.env.VITE_PRODUCTION_ORIGIN;

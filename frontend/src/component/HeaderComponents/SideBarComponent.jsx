@@ -11,6 +11,7 @@ const SideBarComponent = () => {
   const [pathname, setPath] = useState("");
   useEffect(() => {
     const project=localStorage.getItem('project')
+    const token = localStorage.getItem("auth-data");
     const parts = location.pathname.split("/");
     const path = parts[1];
     setPath(path);

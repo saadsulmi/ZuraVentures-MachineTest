@@ -3,14 +3,15 @@ import ProjectHeaderComponent from "../component/HeaderComponents/ProjectHeaderC
 import SideBarComponent from "../component/HeaderComponents/SideBarComponent";
 import EditProfileComponent from "../component/SettingsComponents/EditProfileComponent";
 import LoaderComponents from "../component/Loaders/LoaderComponent";
+import { useEffect } from "react";
 const SettingsPage = () => {
   const [currentProject, setcurrentProject] = useState("Account settings");
   const [loading, setLoading] = useState(true);
-  useState(() => {
+  useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-  });
+  },[]);
   return (
     <div className="w-full h-[100vh] flex">
       {loading && <LoaderComponents />}

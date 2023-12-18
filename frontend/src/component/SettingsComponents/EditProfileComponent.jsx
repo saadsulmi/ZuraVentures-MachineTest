@@ -11,14 +11,14 @@ const EditProfileComponent = ({ handleLoading }) => {
   const [spinner, setSpinner] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("auth-data");
-    console.log(token, "====>");
+    console.log(token, "====>1");
     getUserDetails().then((res) => {
       console.log(res.data.userData);
       handleLoading(false);
       setUserData(res.data.userData);
       setNewUserName(res.data.userData.username);
     });
-  }, []);
+  },[]);
   const handleSubmit = () => {
     setSpinner(true);
     const data = {
@@ -33,6 +33,7 @@ const EditProfileComponent = ({ handleLoading }) => {
           message: "username updated successfully",
           status: 200,
         }));
+        console.log("==>", res.data.userDetails);
         setUserData(res.data.userDetails);
         setTimeout(() => {
           setToast((prev) => ({ ...prev, message: "", status: 0 }));
