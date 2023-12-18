@@ -10,6 +10,7 @@ const SideBarComponent = () => {
   const routes = ["projects", "widget configurations", "deployment", "pricing"];
   const [pathname, setPath] = useState("");
   useEffect(() => {
+    const project=localStorage.getItem('project')
     const parts = location.pathname.split("/");
     const path = parts[1];
     setPath(path);

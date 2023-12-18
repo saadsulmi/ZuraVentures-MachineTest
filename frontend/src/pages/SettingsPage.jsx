@@ -7,7 +7,9 @@ import LoaderComponents from "../component/Loaders/LoaderComponent";
 const SettingsPage = () => {
   const [currentProject, setcurrentProject] = useState("Account settings");
   const [loading, setLoading] = useState(true);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const token = localStorage.getItem("auth-data");
+  }, []);
 
   return (
     <div className="w-full h-[100vh] flex">
