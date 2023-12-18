@@ -19,6 +19,9 @@ function App() {
     <>
       <Suspense fallback={<LoaderComponent />}>
         <Routes path="/">
+          <Route element={<PublicRoute />}>
+            <Route path="/register" element={<RegisterPage />} />
+          </Route>
           <Route element={<PrivateRoute />}>
             <Route index element={<LandingPage />} />
             <Route path="/projects">
@@ -35,9 +38,6 @@ function App() {
             <Route path="/deployment" element={<DeploymentPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/accountsettings" element={<SettingsPage />} />
-          </Route>
-          <Route path="/register" element={<PublicRoute />}>
-            <Route index element={<RegisterPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
