@@ -38,7 +38,7 @@ const DisplayComponent = ({
   };
 
   return (
-    <div className="w-full max-h-[500px] overflow-auto p-3 flex flex-col myscroll pb-10">
+    <div className="w-full max-h-[450px] overflow-auto p-3 flex flex-col myscroll pb-10">
       <div className="w-full h-2/3 flex flex-nowrap flex-col md:flex-row md:flex-wrap">
         <div className="w-full md:w-1/2 mt-2">
           <h1 className="text-xl font-bold text-zinc-700 mb-2">
@@ -229,7 +229,7 @@ const DisplayComponent = ({
             />
             <label
               htmlFor="imageUpload"
-              className="w-full md:w-1/3 h-10 bg-blue-700 hover:bg-blue-600  rounded-lg text-white flex justify-center items-center"
+              className="w-full md:w-1/3 cursor-pointer h-10 bg-blue-700 hover:bg-blue-600  rounded-lg text-white flex justify-center items-center"
             >
               <span className="mr-2">Upload Image</span> <LuUpload />
             </label>

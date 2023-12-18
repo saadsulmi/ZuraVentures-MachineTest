@@ -15,8 +15,8 @@ const CreateProjectComponent = ({
 
 
   return (
-    <div className="absolute w-full h-full bg-black z-10 bg-opacity-40 flex justify-center items-center">
-      <div className="w-2/4 p-6 rounded-2xl h-[300px] shadow-xl bg-white px-8 ">
+    <div className="absolute w-full h-full bg-white z-10 bg-opacity-60 flex justify-center items-center">
+      <div className="w-2/4 px-8 py-12 rounded-2xl border border-zinc-400 shadow-xl bg-white ">
         <h1 className="text-3xl font-semibold capitalize text-blue-700">
           create project
         </h1>

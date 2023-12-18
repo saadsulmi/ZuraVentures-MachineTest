@@ -5,7 +5,7 @@ import { IoIosAddCircle } from "react-icons/io";
 const ProjectMainComponent = ({ handleCreateProject, projects }) => {
   
   return (
-    <div className="w-full flex flex-col md:flex-row flex-nowrap md:flex-wrap p-2 md:p-0 md:pl-32 mt-10">
+    <div className="w-full flex flex-col md:flex-row flex-nowrap md:flex-wrap p-2 md:p-0 md:pl-32 mt-10 ">
       <div className="w-full md:w-11/12 md:h-30 xs:h-40 flex flex-row justify-between pr-4 md:pr-16 pl-2 items-center mb-6">
         <h1 className="text-4xl mr-4 md:mr-0 font-bold text-blue-800">
           Projects
@@ -20,9 +20,11 @@ const ProjectMainComponent = ({ handleCreateProject, projects }) => {
           </span>
         </button>
       </div>
-      {projects?.map((data) => {
+      <div className="w-full max-h-[450px] overflow-auto flex flex-wrap noScroll">
+        {projects?.map((data) => {
         return <ProjectComponent key={data._id} project={data} />;
       })}
+      </div>
     </div>
   );
 };

@@ -107,14 +107,14 @@ const EditProfileComponent = ({ handleLoading }) => {
           <div className="flex w-full bg-blue-950 h-16 rounded-lg justify-between px-10 items-center">
             <h1 className="text-white">
               You are currently on the{" "}
-              <span className="underline font-bold">Ques AI Basic Plan!</span>
+              <span className="underline font-bold cursor-pointer">Ques AI Basic Plan!</span>
             </h1>
             <button className="bg-white w-40 h-10 rounded-lg text-blue-800">
               Upgrade
             </button>
           </div>
         </div>
-        <h1 className="text-red-600 underline font-semibold">
+        <h1 className="text-red-600 underline font-semibold cursor-pointer">
           Cancel Subscription
         </h1>
       </div>

@@ -22,7 +22,7 @@ const ProjectHeaderComponent = ({ currentProject, heading, route }) => {
       <div className="w-full flex justify-between mb-10">
         <div className="flex items-center">
           <FaHome
-            className="ml-4 text-2xl text-gray-500 mr-1 hover:text-gray-800"
+            className="ml-4 text-2xl text-gray-500 mr-1 cursor-pointer hover:text-gray-800"
             onClick={handleHome}
           />
           <h1
@@ -38,16 +38,16 @@ const ProjectHeaderComponent = ({ currentProject, heading, route }) => {
           <div
             className={`absolute ${
               menu ? "visible" : "hidden"
-            } w-40 h-10 bg-zinc-200 border hover:bg-white  border-zinc-400 rounded mt-20 -ml-14 text-lg flex items-center justify-center`}
+            } w-40 h-10 bg-zinc-200 border cursor-pointer hover:bg-white  border-zinc-400 rounded mt-20 -ml-14 text-lg flex items-center justify-center`}
             onClick={logout}
           >
             <h1>Logout</h1>
           </div>
           <FaUser
-            className="ml-4 text-2xl hover:text-gray-800 text-gray-700"
+            className="ml-4 text-2xl hover:text-gray-800 cursor-pointer text-gray-700"
             onClick={() => setMenu(!menu)}
           />
-          <FaBell className="ml-4 text-2xl text-gray-700" />
+          <FaBell className="ml-6 cursor-pointer text-2xl text-gray-700" />
         </div>
       </div>
       <h1 className="text-4xl font-bold text-blue-700 mb-10">{`${

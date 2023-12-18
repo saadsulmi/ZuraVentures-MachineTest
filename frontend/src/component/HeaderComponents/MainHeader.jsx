@@ -5,10 +5,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { resetUser } from "../../features/authReducer";
 import { resetCurrentProject } from "../../features/projectReducer";
+import { useNavigate } from "react-router-dom";
 const MainHeader = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-
+  const navigate=useNavigate()
   const handleLogout = () => {
     dispatch(resetUser());
     dispatch(resetCurrentProject());
@@ -17,15 +18,15 @@ const MainHeader = () => {
 
   return (
     <div className="w-full h-[60px] flex justify-between items-center px-10 mb-10">
-      <img className="w-2/5 md:w-1/12 mt-2" src={logo} alt="" />
+      <img className="w-2/5 md:w-1/12 mt-2 cursor-pointer" src={logo} onClick={()=>navigate('/')} alt="" />
       <div className="flex items-center">
         <IoSettings
-          className="mr-5 text-blue-950 text-[25px]"
+          className="mr-5 cursor-pointer text-blue-950 text-[25px]"
           onClick={() => {
             setOpen(!open);
           }}
         />
-        <FaBell className="font-bold cursor-pointer text-blue-950 text-[25px]" />
+        <FaBell className=" font-bold ml-6 cursor-pointer text-blue-950 text-[25px]" />
         <div
           className={`absolute cursor-pointer ${
             open ? "visible" : "hidden"

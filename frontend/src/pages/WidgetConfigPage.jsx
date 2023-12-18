@@ -151,7 +151,7 @@ const WidgetConfigPage = () => {
             <div className="relative flex mb-5">
               <div className="w-4/5 flex">
                 <h1
-                  className={`mr-1 w-32 text-center h-10 ${
+                  className={`mr-1 w-32 text-center cursor-pointer h-10 ${
                     option === 1
                       ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
                       : ""
@@ -161,7 +161,7 @@ const WidgetConfigPage = () => {
                   General
                 </h1>
                 <h1
-                  className={`mr-1 w-32 text-center h-10 ${
+                  className={`mr-1 w-32 text-center cursor-pointer h-10 ${
                     option === 2
                       ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
                       : ""
@@ -171,7 +171,7 @@ const WidgetConfigPage = () => {
                   Display
                 </h1>
                 <h1
-                  className={`w-32 text-center h-10 ${
+                  className={`w-32 text-center cursor-pointer h-10 ${
                     option === 3
                       ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
                       : ""

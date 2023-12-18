@@ -1,9 +1,11 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setCurrentProject } from "../../features/projectReducer";
+import { useEffect, useState } from "react";
 const ProjectComponent = ({ project }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [color,setColor]=useState('')
   const getRandomColorClass = () => {
     const colors = [
       "bg-blue-700",
@@ -13,9 +15,11 @@ const ProjectComponent = ({ project }) => {
       "bg-pink-500",
     ];
     const randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
+    setColor(colors[randomIndex])
   };
-
+  useEffect(()=>{
+    getRandomColorClass()
+  },[]);
   const getDate = (date) => {
     const dateObject = new Date(date);
     const year = dateObject.getFullYear();
@@ -43,11 +47,11 @@ const ProjectComponent = ({ project }) => {
   };
   return (
     <div
-      className="w-full md:w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center border-blue-300 mr-10 mb-10"
+      className="w-full md:w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center cursor-pointer border-blue-300 mr-10 mb-4"
       onClick={() => handleNavigate(project._id)}
     >
       <div
-        className={`w-1/3 h-full rounded-xl flex items-center justify-center ${getRandomColorClass()} mr-2`}
+        className={`w-1/3 h-full rounded-xl flex items-center justify-center ${color} mr-2`}
       >
         <h1 className="font-extrabold text-5xl text-white ">
           {getInitials(project.projectName)}

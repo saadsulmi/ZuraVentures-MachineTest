@@ -19,7 +19,7 @@ const SideBarComponent = () => {
   return (
     <div className="w-3/12 sticky h-[100vh] bg-[rgb(243,232,255)] lg:flex flex-col justify-between p-3 hidden">
       <div>
-        <img className="w-1/2 mt-0" src={logo} alt="" />
+        <img className="w-1/2 mt-0 cursor-pointer" src={logo} onClick={()=>navigate('/')} alt="" />
         <h1 className="text-[rgb(73,69,79)] mt-6">Podcast Upload Flow</h1>
         {routes.map((val, idx) => {
           return (

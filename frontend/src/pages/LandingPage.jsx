@@ -29,16 +29,20 @@ const LandingPage = () => {
       })
       setisLoading(false);
     }
-  }, []);
+  },[]);
   const handleCreateProject = () => {
     setOpen(!open);
   };
+  const closeCreateProject=()=>{
+    setError(false)
+    setOpen(!open);
+
+  }
     const handleCreate = () => {
     if (!projectName) {
       setError(true);
     } else {
       createProject({ projectName }).then((res) => {
-        console.log(res.data.projects);
         setProjects(prev=>[res.data.projects,...prev]);
         setOpen(false);
       });
@@ -55,7 +59,7 @@ const LandingPage = () => {
             error={error}
             setProjectName={setProjectName}
             handleCreate={handleCreate}
-            handleCreateProject={handleCreateProject}
+            handleCreateProject={closeCreateProject}
             setOpen={setOpen}
           />
         ) : (
