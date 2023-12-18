@@ -13,7 +13,9 @@ const ProjectMainComponent = ({ handleCreateProject, projects }) => {
           onClick={handleCreateProject}
         >
           <IoIosAddCircle className="text-2xl font-bold" />
-          <span className="ml1 md:ml-2">create new project</span>
+          <span className="ml-1 text-sm md:text-base md:ml-2">
+            create new project
+          </span>
         </button>
       </div>
       {projects?.map((data) => {
