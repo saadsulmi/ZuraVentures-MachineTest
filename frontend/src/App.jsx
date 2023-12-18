@@ -32,7 +32,9 @@ function App() {
             <Route path="pricing" element={<PricingPage />} />
             <Route path="accountsettings" element={<SettingsPage />} />
           </Route>
-          <Route path="register" element={<RegisterPage />} />
+          <Route element={<PublicRoute />}>
+            <Route path="register" element={<RegisterPage />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
