@@ -22,7 +22,7 @@ const RegisterComponent = () => {
           localStorage.setItem("auth-data", data);
           dispatch(authUser(data));
         });
-        window.location.reload();
+        navigate("/");
       } else {
         setError((prev) => ({ ...prev, emailErr: true }));
       }
