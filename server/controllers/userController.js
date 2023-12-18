@@ -45,7 +45,6 @@ const updateUser = async (req, res) => {
 
 const getUserDetails = async (req, res) => {
   try {
-    const token = req.header("auth-token");
     const response = await verifyToken(token);
     const userData = await userModel.findOne({ _id: response.id });
     console.log(userData);

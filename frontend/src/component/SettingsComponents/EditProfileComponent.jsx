@@ -11,6 +11,7 @@ const EditProfileComponent = ({ handleLoading }) => {
   const [spinner, setSpinner] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("auth-data");
+    console.log(token, "====>");
     getUserDetails().then((res) => {
       console.log(res.data.userData);
       handleLoading(false);
