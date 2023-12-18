@@ -21,8 +21,8 @@ const SubProjectsComponent = ({ subProjects, deleteHandler }) => {
   };
   return (
     <>
-      <div className="w-full h-14 bg-blue-800 rounded-lg flex items-center justify-between px-2 lg:px-8 mb-2">
-        <h1 className="text-sm lg:text-md text-white">
+      <div className="w-full h-14 bg-blue-800 rounded-lg flex items-center justify-between px-2 md:px-8 mb-2">
+        <h1 className="text-sm md:text-md text-white">
           All files are processed! Your widget is ready to go!
         </h1>
         <button className="w-36 h-10 rounded-lg bg-white">Try it out!</button>

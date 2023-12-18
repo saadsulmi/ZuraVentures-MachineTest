@@ -3,17 +3,17 @@ import { IoIosAddCircle } from "react-icons/io";
 
 const ProjectMainComponent = ({ handleCreateProject, projects }) => {
   return (
-    <div className="w-full flex flex-col lg:flex-row flex-nowrap lg:flex-wrap p-2 lg:p-0 lg:pl-32 mt-10">
-      <div className="w-full lg:w-11/12 lg:h-30 xs:h-40 flex flex-row justify-between pr-4 lg:pr-16 pl-2 items-center mb-6">
-        <h1 className="text-4xl mr-4 lg:mr-0 font-bold text-blue-800">
+    <div className="w-full flex flex-col md:flex-row flex-nowrap md:flex-wrap p-2 md:p-0 md:pl-32 mt-10">
+      <div className="w-full md:w-11/12 md:h-30 xs:h-40 flex flex-row justify-between pr-4 md:pr-16 pl-2 items-center mb-6">
+        <h1 className="text-4xl mr-4 md:mr-0 font-bold text-blue-800">
           Projects
         </h1>
         <button
-          className="capitalise w-2/3 lg:w-1/6 h-[40px] lg:p-1 rounded-md text-white font-bold bg-[rgb(33,25,53)] hover:bg-[rgb(54,41,86)] flex justify-center items-center"
+          className="capitalise w-2/3 md:w-1/6 h-[40px] md:p-1 rounded-md text-white font-bold bg-[rgb(33,25,53)] hover:bg-[rgb(54,41,86)] flex justify-center items-center"
           onClick={handleCreateProject}
         >
           <IoIosAddCircle className="text-2xl font-bold" />
-          <span className="ml1 lg:ml-2">create new project</span>
+          <span className="ml1 md:ml-2">create new project</span>
         </button>
       </div>
       {projects?.map((data) => {

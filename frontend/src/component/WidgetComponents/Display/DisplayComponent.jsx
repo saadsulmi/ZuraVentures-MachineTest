@@ -39,8 +39,8 @@ const DisplayComponent = ({
 
   return (
     <div className="w-full max-h-[500px] overflow-auto p-3 flex flex-col myscroll pb-10">
-      <div className="w-full h-2/3 flex flex-nowrap flex-col lg:flex-row lg:flex-wrap">
-        <div className="w-full lg:w-1/2 mt-2">
+      <div className="w-full h-2/3 flex flex-nowrap flex-col md:flex-row md:flex-wrap">
+        <div className="w-full md:w-1/2 mt-2">
           <h1 className="text-xl font-bold text-zinc-700 mb-2">
             Primary color
           </h1>
@@ -59,7 +59,7 @@ const DisplayComponent = ({
             />
           </div>
         </div>
-        <div className="w-full lg:w-1/2 mt-2">
+        <div className="w-full md:w-1/2 mt-2">
           <h1 className="text-xl font-bold text-zinc-700 mb-2">Font Color</h1>
           <div className="flex">
             <input
@@ -76,11 +76,11 @@ const DisplayComponent = ({
             />
           </div>
         </div>
-        <div className="w-full lg:w-1/2 mt-4">
+        <div className="w-full md:w-1/2 mt-4">
           <h1 className="text-xl font-bold text-zinc-700 mb-2">
             Font Size (in px)
           </h1>
-          <div className="flex pr-0 lg:pr-10">
+          <div className="flex pr-0 md:pr-10">
             <input
               className="w-full h-10 mr-2 rounded-md border-1 outline-1 bg-slate-300 focus:outline-none px-3"
               type="number"
@@ -94,11 +94,11 @@ const DisplayComponent = ({
             </h1>
           )}
         </div>
-        <div className="w-full lg:w-1/2 mt-4">
+        <div className="w-full md:w-1/2 mt-4">
           <h1 className="text-xl font-bold text-zinc-700 mb-2">
             Chat Height (in % of total screen)
           </h1>
-          <div className="flex pr-0 lg:pr-10">
+          <div className="flex pr-0 md:pr-10">
             <input
               className="w-full h-10 mr-2 rounded-md border-1 outline-1 bg-slate-300 focus:outline-none px-3"
               type="number"
@@ -136,11 +136,11 @@ const DisplayComponent = ({
       <div className="w-full ">
         <h1 className="text-xl font-bold text-blue-800 mb-10">Chat Icon</h1>
         <div className="w-full h-2/3 flex flex-wrap">
-          <div className="w-full lg:w-1/2">
+          <div className="w-full md:w-1/2">
             <h1 className="text-xl font-bold text-zinc-700 mb-2">
               Chat Icon Size
             </h1>
-            <div className="flex pr-0 lg:pr-10">
+            <div className="flex pr-0 md:pr-10">
               <select
                 className="w-full h-10 mr-2 rounded-md border-1 outline-1 bg-slate-300 focus:outline-none px-3"
                 value={configData.chaticonsize}
@@ -154,11 +154,11 @@ const DisplayComponent = ({
               </select>
             </div>
           </div>
-          <div className="w-full lg:w-1/2">
+          <div className="w-full md:w-1/2">
             <h1 className="text-xl font-bold text-zinc-700 mb-2">
               Position on Screen
             </h1>
-            <div className="flex pr-0 lg:pr-10">
+            <div className="flex pr-0 md:pr-10">
               <select
                 className="w-full h-10 mr-2 rounded-md border-1 outline-1 bg-slate-300 focus:outline-none px-3"
                 value={configData.screenposistion}
@@ -173,11 +173,11 @@ const DisplayComponent = ({
               </select>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 mt-3">
+          <div className="w-full md:w-1/2 mt-3">
             <h1 className="text-xl font-bold text-zinc-700 mb-2 mt-2">
               Distance from Bottom (in px)
             </h1>
-            <div className="flex pr-0 lg:pr-10">
+            <div className="flex pr-0 md:pr-10">
               <input
                 className="w-full h-10 mr-2 rounded-md border-1 outline-1 bg-slate-300 focus:outline-none px-3"
                 type="number"
@@ -191,11 +191,11 @@ const DisplayComponent = ({
               </h1>
             )}
           </div>
-          <div className="w-full lg:w-1/2 mt-3">
+          <div className="w-full md:w-1/2 mt-3">
             <h1 className="text-xl font-bold text-zinc-700 mb-2 mt-2">
               Horizontal Distance (in px)
             </h1>
-            <div className="flex pr-0 lg:pr-10">
+            <div className="flex pr-0 md:pr-10">
               <input
                 className="w-full h-10 mr-2 rounded-md border-1 outline-1 bg-slate-300 focus:outline-none px-3"
                 type="number"
@@ -229,7 +229,7 @@ const DisplayComponent = ({
             />
             <label
               htmlFor="imageUpload"
-              className="w-full lg:w-1/3 h-10 bg-blue-700 hover:bg-blue-600  rounded-lg text-white flex justify-center items-center"
+              className="w-full md:w-1/3 h-10 bg-blue-700 hover:bg-blue-600  rounded-lg text-white flex justify-center items-center"
             >
               <span className="mr-2">Upload Image</span> <LuUpload />
             </label>

@@ -39,7 +39,7 @@ const UploadProjectComponent = ({
 
   return (
     <div className="absolute w-full h-full bg-black z-10 bg-opacity-40 flex justify-center items-center">
-      <div className="w-3/5 h-2/3 lg:h-1/2  p-6 rounded-lg shadow-xl bg-white px-8 ">
+      <div className="w-3/5 h-2/3 md:h-1/2  p-6 rounded-lg shadow-xl bg-white px-8 ">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <img className="w-14 h-14 rounded-full mr-4" src={logo} alt="" />

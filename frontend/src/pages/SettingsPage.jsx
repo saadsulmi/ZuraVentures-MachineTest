@@ -13,7 +13,7 @@ const SettingsPage = () => {
     <div className="w-full h-[100vh] flex">
       {loading && <LoaderComponents />}
       <SideBarComponent />
-      <div className="w-full lg:w-9/12 h-[100vh] text-black px-10 pt-10 ">
+      <div className="w-full md:w-9/12 h-[100vh] text-black px-10 pt-10 ">
         <ProjectHeaderComponent currentProject={currentProject} />
         <EditProfileComponent handleLoading={setLoading} />
       </div>

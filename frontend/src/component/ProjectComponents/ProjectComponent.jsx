@@ -43,7 +43,7 @@ const ProjectComponent = ({ project }) => {
   };
   return (
     <div
-      className="w-full lg:w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center border-blue-300 mr-10 mb-10"
+      className="w-full md:w-96 shadow-xl h-32 rounded-2xl border border-1 p-2 flex flex-row items-center border-blue-300 mr-10 mb-10"
       onClick={() => handleNavigate(project._id)}
     >
       <div

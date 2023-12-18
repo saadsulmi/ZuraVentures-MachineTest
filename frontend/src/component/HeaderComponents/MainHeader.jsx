@@ -4,7 +4,7 @@ import { FaBell } from "react-icons/fa";
 const MainHeader = () => {
   return (
     <div className="w-full h-[60px] flex justify-between items-center px-10 mb-10">
-      <img className="w-2/5 lg:w-1/12 mt-2" src={logo} alt="" />
+      <img className="w-2/5 md:w-1/12 mt-2" src={logo} alt="" />
       <div className="flex items-center">
         <IoSettings className="mr-5 text-blue-950 text-[25px]" />
         <FaBell className="font-bold text-blue-950 text-[25px]" />

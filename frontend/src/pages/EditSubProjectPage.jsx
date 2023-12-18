@@ -56,14 +56,14 @@ const EditSubProjectPage = () => {
     <div className="w-full h-[100vh] flex flex-row text-black">
       {loader && <LoaderComponent />}
       <SideBarComponent />
-      <div className="w-full lg:w-9/12 h-[100vh] text-black px-10 pt-10 ">
+      <div className="w-full md:w-9/12 h-[100vh] text-black px-10 pt-10 ">
         <div className="w-full flex justify-between mb-10">
           <div className="flex items-center">
             <FaHome
-              className="ml-4 lg:text-2xl text-gray-500 mr-1 hover:text-gray-800"
+              className="ml-4 md:text-2xl text-gray-500 mr-1 hover:text-gray-800"
               onClick={() => navigate("/")}
             />
-            <h1 className="sm lg:text-lg text-gray-500 mt-1 font-medium">
+            <h1 className="sm md:text-lg text-gray-500 mt-1 font-medium">
               {`/${currentProject}`}
               <span className="text-blue-700">/Transcript</span>
             </h1>
@@ -73,9 +73,9 @@ const EditSubProjectPage = () => {
             <FaBell className="ml-4 text-2xl text-gray-700" />
           </div>
         </div>
-        <div className="w-full mb-6 lg:mb-0 flex flex-col lg:flex-row justify-between items-center">
+        <div className="w-full mb-6 md:mb-0 flex flex-col md:flex-row justify-between items-center">
           <div>
-            <h1 className="text-2xl lg:text-4xl font-bold text-blue-700 mb-10">
+            <h1 className="text-2xl md:text-4xl font-bold text-blue-700 mb-10">
               Edit Discription
             </h1>
           </div>
@@ -94,7 +94,7 @@ const EditSubProjectPage = () => {
             </button>
           </div>
         </div>
-        <div className="relative w-full h-3/5 lg:h-2/3">
+        <div className="relative w-full h-3/5 md:h-2/3">
           <textarea
             className={`absolute w-full h-full resize-none rounded-xl border border-blue-700 bg-white pt-20 px-4 ${
               edit ? "block" : "cursor-not-allowed"

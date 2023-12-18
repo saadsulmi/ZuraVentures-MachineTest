@@ -21,22 +21,18 @@ function App() {
         <Routes path="/">
           <Route element={<PrivateRoute />}>
             <Route index element={<LandingPage />} />
-            <Route path="/projects">
-              <Route index element={<ProjectPage />} />
+            <Route path="projects" element={<ProjectPage />}>
               <Route
                 path="edit/:subProjectId"
                 element={<EditSubProjectPage />}
               />
             </Route>
-            <Route
-              path="/widgetconfigurations"
-              element={<WidgetConfigPage />}
-            />
-            <Route path="/deployment" element={<DeploymentPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/accountsettings" element={<SettingsPage />} />
+            <Route path="widgetconfigurations" element={<WidgetConfigPage />} />
+            <Route path="deployment" element={<DeploymentPage />} />
+            <Route path="pricing" element={<PricingPage />} />
+            <Route path="accountsettings" element={<SettingsPage />} />
           </Route>
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="register" element={<RegisterPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

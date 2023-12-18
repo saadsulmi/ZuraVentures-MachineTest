@@ -30,9 +30,9 @@ const RegisterComponent = () => {
   };
   return (
     <>
-      <div className="fixed w-full lg:w-full lg:h-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-        <div className="absolute w-full h-full lg:w-1/3 lg:h-2/4 rounded-lg pt-7 bg-white shadow-lg flex flex-col items-center text-[rgb(126,34,206)] ">
-          <h1 className="text-4xl capitalize font-bold mt-52 lg:mt-5">
+      <div className="fixed w-full md:w-full md:h-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="absolute w-full h-full md:w-1/3 md:h-2/4 rounded-lg pt-7 bg-white shadow-lg flex flex-col items-center text-[rgb(126,34,206)] ">
+          <h1 className="text-4xl capitalize font-bold mt-52 md:mt-5">
             user registration
           </h1>
           <input
