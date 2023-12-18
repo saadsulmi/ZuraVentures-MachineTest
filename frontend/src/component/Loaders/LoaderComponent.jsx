@@ -1,8 +1,10 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import loader from "../../assets/LoaderAnimation - 1702636213469.json";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoaderComponent = ({ initial }) => {
+  const navigate = useNavigate();
   useEffect(() => {}, []);
   return (
     <div className="absolute w-full h-full flex justify-center bg-white items-center">

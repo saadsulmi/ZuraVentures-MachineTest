@@ -13,6 +13,7 @@ const LandingPage = () => {
   const [isLoading, setisLoading] = useState(false);
   useEffect(() => {
     setisLoading(true);
+    let token = localStorage.getItem("auth-data");
     getProjects().then((res) => {
       setProjects(res.data.projects);
       setisLoading(false);
