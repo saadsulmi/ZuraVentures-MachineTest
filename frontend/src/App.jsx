@@ -36,8 +36,8 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/accountsettings" element={<SettingsPage />} />
           </Route>
-          <Route element={<PublicRoute />}>
-            <Route path="/register" element={<RegisterPage />} />
+          <Route path="/register" element={<PublicRoute />}>
+            <Route index element={<RegisterPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
