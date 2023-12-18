@@ -5,7 +5,6 @@ import SideBarComponent from "../component/HeaderComponents/SideBarComponent";
 import { getSubProjectDetails, updateDescription } from "../services/API";
 import LoaderComponent from "../component/Loaders/LoaderComponent";
 import SpinnerComponents from "../component/Loaders/SpinnerComponents";
-import { ToastContainer } from "react-toastify";
 
 const EditSubProjectPage = () => {
   const navigate = useNavigate();

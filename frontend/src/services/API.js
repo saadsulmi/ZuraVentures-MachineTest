@@ -21,8 +21,8 @@ export const userRegister = async (data) =>
 export const createProject = async (data) =>
   await axiosInstance.post("/createProject", data, headers);
 
-export const getProjects = async () =>
-  await axiosInstance.get("/getProjects", headers);
+export const getProjects = async (subHeader) =>
+  await axiosInstance.get("/getProjects", subHeader?subHeader:headers);
 
 export const uploadSubProjects = async (data) =>
   await axiosInstance.post("/uploadSubProjects", data);
@@ -39,8 +39,10 @@ export const deleteSubProject = async (id) =>
 export const updateDescription = async (data) =>
   await axiosInstance.patch("/updateDescription", data);
 
-export const getUserDetails = async () =>
-  await axiosInstance.get("/getUserDetails");
+export const getUserDetails = async (subHeader) =>{
+  await axiosInstance.get("/getUserDetails",subHeader?subHeader:headers);
+}
+  
 
 export const updateUser = async (data) =>
   await axiosInstance.patch("/updateUser", data);

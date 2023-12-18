@@ -6,21 +6,30 @@ import CreateProjectComponent from "../component/ProjectComponents/CreateProject
 import InitialLandingComponent from "../component/ProjectComponents/InitialLandingComponent";
 import ProjectMainComponent from "../component/ProjectComponents/ProjectMainComponent";
 import LoaderComponent from "../component/Loaders/LoaderComponent";
+import { useSelector } from "react-redux";
 
 const LandingPage = () => {
+  const auth = useSelector(state=>state.auth.auth)
   const [open, setOpen] = useState(false);
   const [projects, setProjects] = useState("");
   const [isLoading, setisLoading] = useState(false);
   useEffect(() => {
-    setisLoading(true);
     let token = localStorage.getItem("auth-data");
-    console.log(token,"====>");
-    getProjects().then((res) => {
-      setProjects(res.data.projects);
+    if(auth){
+      const headers = {
+        headers: {
+          "auth-token": JSON.parse(localStorage.getItem("auth-data")),
+        },
+      };
+      console.log(headers);
+      setisLoading(true);
+      getProjects(headers).then((res) => {
+        setProjects(res.data.projects);
+        setisLoading(false);
+      });
       setisLoading(false);
-    });
-    setisLoading(false);
-  }, [open]);
+    }
+  }, [auth]);
   const handleCreateProject = () => {
     setOpen(!open);
   };

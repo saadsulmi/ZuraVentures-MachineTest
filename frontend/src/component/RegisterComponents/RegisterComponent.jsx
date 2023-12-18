@@ -22,8 +22,7 @@ const RegisterComponent = () => {
           localStorage.setItem("auth-data", data);
           dispatch(authUser(data));
         });
-        console.log(localStorage.getItem("auth-data"), "====>");
-        // navigate("/");
+        navigate("/");
       } else {
         setError((prev) => ({ ...prev, emailErr: true }));
       }
