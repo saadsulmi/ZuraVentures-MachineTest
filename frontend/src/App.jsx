@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import PrivateRoute from "./routes/PrivateRoute";
 import PublicRoute from "./routes/PublicRoute";
 import LoaderComponent from "./component/Loaders/LoaderComponent";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
@@ -38,6 +39,7 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/accountsettings" element={<SettingsPage />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </>

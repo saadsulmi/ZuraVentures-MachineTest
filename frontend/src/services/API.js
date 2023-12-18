@@ -1,14 +1,19 @@
 import axiosInstance from "./axios";
 
-const formDataHeaders = {
+const headers = {
   headers: {
-    "auth-token": JSON.stringify(localStorage.getItem("auth-data")) || null,
-    "Content-Type": "multipart/formdata",
+    "auth-token": JSON.parse(localStorage.getItem("auth-data")),
   },
 };
 
-export const test = async () =>
-  await axiosInstance.post("/test", { message: "test message" });
+const formDataHeaders = {
+  headers: {
+    "auth-token": localStorage.getItem("auth-data")
+      ? JSON.parse(localStorage.getItem("auth-data"))
+      : null,
+    "Content-Type": "multipart/formdata",
+  },
+};
 
 export const userRegister = async (data) =>
   await axiosInstance.post("/createUser", data);

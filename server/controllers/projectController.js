@@ -1,13 +1,13 @@
 const ProjectModel = require("../models/projectModel");
 const configModel = require("../models/widgetConfigModel");
-const { createToken, verifyToken } = require("../middlewares/jwt");
+const { verifyToken } = require("../middlewares/jwt");
 const subProjectModel = require("../models/subProjectModel");
 const { uploadBotIcon, getBotSignedUrl } = require("../utils/s3");
 
 const createProject = async (req, res) => {
   try {
     const { projectName } = req.body;
-    let token = JSON.parse(req.header("auth-token"));
+    let token = req.header("auth-token");
     let response = await verifyToken(token);
     const isExist = await ProjectModel.findOne({ projectName });
     if (!isExist) {
@@ -32,8 +32,11 @@ const createProject = async (req, res) => {
 };
 
 const getProjects = async (req, res) => {
+  let token = req.header("auth-token");
+  if (!token) {
+    return res.status(401).json({ message: "Token must be provided" });
+  }
   try {
-    let token = JSON.parse(req.header("auth-token"));
     const response = await verifyToken(token);
     const userProjects = await ProjectModel.find({ userId: response.id })
       .select("-__v")

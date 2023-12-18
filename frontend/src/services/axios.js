@@ -11,8 +11,8 @@ const axiosInstance = axios.create({
   baseURL: allowedOrgins,
   headers: {
     "Content-Type": "application/json",
-    "auth-token": JSON.stringify(localStorage.getItem("auth-data"))
-      ? JSON.stringify(localStorage.getItem("auth-data"))
+    "auth-token": localStorage.getItem("auth-data")
+      ? JSON.parse(localStorage.getItem("auth-data"))
       : null,
   },
 });
