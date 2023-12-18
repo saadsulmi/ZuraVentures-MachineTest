@@ -10,8 +10,6 @@ const EditProfileComponent = ({ handleLoading }) => {
   const [newuserName, setNewUserName] = useState("");
   const [spinner, setSpinner] = useState(false);
   useEffect(() => {
-    const token = localStorage.getItem("auth-data");
-    console.log(token, "====>1");
     getUserDetails().then((res) => {
       console.log(res.data.userData);
       handleLoading(false);

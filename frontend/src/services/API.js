@@ -39,9 +39,9 @@ export const deleteSubProject = async (id) =>
 export const updateDescription = async (data) =>
   await axiosInstance.patch("/updateDescription", data);
 
-export const getUserDetails = async (subHeader) =>{
-  await axiosInstance.get("/getUserDetails",subHeader?subHeader:headers);
-}
+export const getUserDetails = async (subHeader) =>
+   await axiosInstance.get("/getUserDetails",subHeader?subHeader:headers);
+
   
 
 export const updateUser = async (data) =>
