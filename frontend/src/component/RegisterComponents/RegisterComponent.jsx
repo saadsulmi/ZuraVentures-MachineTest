@@ -1,15 +1,11 @@
 import { useState } from "react";
 import { userRegister } from "../../services/API";
-import ToastifyComponent from "../BoilerPlates/ToastifyComponent";
 import { useDispatch } from "react-redux";
 import { authUser } from "../../features/authReducer";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const RegisterComponent = () => {
   const [user, setUser] = useState({ username: "", email: "" });
-  const [status, setStatus] = useState(0);
-  const [message, setmessage] = useState("");
   const [error, setError] = useState({ nameErr: false, emailErr: false });
   const dispatch = useDispatch();
   const navigate = useNavigate("");
@@ -25,9 +21,7 @@ const RegisterComponent = () => {
           let data = JSON.stringify(res.data.token);
           localStorage.setItem("auth-data", data);
           dispatch(authUser(data));
-          setmessage(res.data.message);
-          setStatus(res.status);
-          window.location.reload();
+          navigate("/");
         });
       } else {
         setError((prev) => ({ ...prev, emailErr: true }));
@@ -72,7 +66,6 @@ const RegisterComponent = () => {
           </button>
         </div>
       </div>
-      <ToastifyComponent message={message} status={status} />
     </>
   );
 };
