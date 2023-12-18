@@ -13,7 +13,7 @@ const RegisterComponent = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (user.username && user.email) {
       let isValid = validateEmail(user.email);
       if (isValid) {
@@ -21,8 +21,8 @@ const RegisterComponent = () => {
           let data = JSON.stringify(res.data.token);
           localStorage.setItem("auth-data", data);
           dispatch(authUser(data));
-          navigate("/");
         });
+        window.location.reload();
       } else {
         setError((prev) => ({ ...prev, emailErr: true }));
       }
