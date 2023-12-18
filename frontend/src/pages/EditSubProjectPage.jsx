@@ -19,7 +19,6 @@ const EditSubProjectPage = () => {
 
   useEffect(() => {
     getSubProjectDetails(subProjectId).then((res) => {
-      console.log(res.data.singleSubProject);
       setSubProject(res.data.singleSubProject);
       setCurrentProject(res.data.currentProject.projectName);
       setNewDescription(res.data.singleSubProject.description);

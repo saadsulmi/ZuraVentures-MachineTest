@@ -142,55 +142,57 @@ const WidgetConfigPage = () => {
             heading={"Configuration"}
             route={"/ widget configuration"}
           />
-          <div className="relative flex mb-5">
-            <div className="w-4/5 flex">
-              <h1
-                className={`mr-1 w-32 text-center h-10 ${
-                  option === 1
-                    ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
+          {!loader && (
+            <div className="relative flex mb-5">
+              <div className="w-4/5 flex">
+                <h1
+                  className={`mr-1 w-32 text-center h-10 ${
+                    option === 1
+                      ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
+                      : ""
+                  }`}
+                  onClick={() => setOption(1)}
+                >
+                  General
+                </h1>
+                <h1
+                  className={`mr-1 w-32 text-center h-10 ${
+                    option === 2
+                      ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
+                      : ""
+                  }`}
+                  onClick={() => setOption(2)}
+                >
+                  Display
+                </h1>
+                <h1
+                  className={`w-32 text-center h-10 ${
+                    option === 3
+                      ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
+                      : ""
+                  }`}
+                  onClick={() => setOption(3)}
+                >
+                  Advanced
+                </h1>
+              </div>
+              <div
+                className={`w-1/5 flex items-center ${
+                  JSON.stringify(configData) === JSON.stringify(oldConfig)
+                    ? "hidden"
                     : ""
                 }`}
-                onClick={() => setOption(1)}
               >
-                General
-              </h1>
-              <h1
-                className={`mr-1 w-32 text-center h-10 ${
-                  option === 2
-                    ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
-                    : ""
-                }`}
-                onClick={() => setOption(2)}
-              >
-                Display
-              </h1>
-              <h1
-                className={`w-32 text-center h-10 ${
-                  option === 3
-                    ? "border-b-4 rounded-sm text-blue-600 font-bold border-blue-600"
-                    : ""
-                }`}
-                onClick={() => setOption(3)}
-              >
-                Advanced
-              </h1>
+                <button
+                  className="-mt-10 w-3/4 h-10 bg-blue-800 hover:bg-blue-700 rounded-lg text-white"
+                  onClick={handleSubmit}
+                >
+                  {isLoading ? <SpinnerComponents /> : "Save Changes"}
+                </button>
+              </div>
+              <hr className="absolute mt-9 border-1 border-gray-300 w-full rounded-2xl " />
             </div>
-            <div
-              className={`w-1/5 flex items-center ${
-                JSON.stringify(configData) === JSON.stringify(oldConfig)
-                  ? "hidden"
-                  : ""
-              }`}
-            >
-              <button
-                className="-mt-10 w-3/4 h-10 bg-blue-800 hover:bg-blue-700 rounded-lg text-white"
-                onClick={handleSubmit}
-              >
-                {isLoading ? <SpinnerComponents /> : "Save Changes"}
-              </button>
-            </div>
-            <hr className="absolute mt-9 border-1 border-gray-300 w-full rounded-2xl " />
-          </div>
+          )}
           {option === 1 ? (
             <GeneralComponent
               setConfigData={setConfigData}
